@@ -30,3 +30,5 @@ git push origin master 		// Then you are asked for username and password (type y
 
 This is how you work with git.
 
+borislava was here
+
