@@ -16,12 +16,8 @@ namespace GameFifteen.Common
         public const int MatrixLength = 4;
         static int[,] sol = new int[MatrixLength, MatrixLength] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, 
                                                                      { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
-        static int emptyRow = 3;
-        static int emptyCol = 3;
         static int[,] currentMatrix = new int[MatrixLength, MatrixLength] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 },
                                                                           { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
-        static int[] dirR = new int[4] { -1, 0, 1, 0 };
-        static int[] dirC = new int[4] { 0, 1, 0, -1 };
         static OrderedMultiDictionary<int, string> scoreboard = new OrderedMultiDictionary<int, string>(true);
 
         private static bool IfOutOfMAtrix(int row, int col)
