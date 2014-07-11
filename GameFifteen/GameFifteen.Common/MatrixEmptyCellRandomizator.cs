@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameFifteen.Common.Utils
+using GameFifteen.Common.Utils;
 
 namespace GameFifteen.Common
 {
@@ -27,14 +27,14 @@ namespace GameFifteen.Common
                 int randomDirection = RandomUtils.GetRandomNumber(4);
                 Point newEmptyPoint = new Point(emptyPoint.Row + dirR[randomDirection], emptyPoint.Col + dirC[randomDirection]);
 
-                if (IfOutOfMAtrix(newRow, newCol))
+                if (OutOfMatrixChecker.CheckIfOutOfMatrix(newEmptyPoint, this.matrix.GetLength(0)))
                 {
                     i--;
                     continue;
                 }
                 else
                 {
-                    MoveEmptyCell(newRow, newCol);
+                    EmptyCellMover.MoveEmptyCell(emptyPoint,newEmptyPoint,this.matrix);
                 }
             }
         }

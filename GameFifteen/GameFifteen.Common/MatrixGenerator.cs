@@ -3,25 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameFifteen.Common.Utils
+using GameFifteen.Common.Utils;
 
 namespace GameFifteen.Common
 {
     public class MatrixGenerator
     {
-            private MatrixEmptyCellRandomizator matrixRandomizator;
-            private int[,] matrix;
+        private MatrixEmptyCellRandomizator matrixRandomizator;
+        private int[,] matrix;
         private int matrixLength;
 
-            public GenerateMatrix(int matrixLength,MatrixEmptyCellRandomizator matrixRandomizator)
-            {
-                this.matrixLength = matrixLength;
-                this.matrixRandomizator = matrixRandomizator;
-            }
-
-        private  void GenerateMatrix()
+        public MatrixGenerator(int matrixLength, MatrixEmptyCellRandomizator matrixRandomizator)
         {
+            this.matrixLength = matrixLength;
+        }
 
+        private void GenerateMatrix()
+        {
             int value = 1;
             for (int i = 0; i < this.matrixLength; i++)
             {
@@ -31,8 +29,6 @@ namespace GameFifteen.Common
                     value++;
                 }
             }
-
-           // matrixRandomizator.Randomize(curr
 
             if (IfEqualMatrix())
             {

@@ -27,7 +27,7 @@ namespace GameFifteen.Common
                 return true;
             }
 
-            return false;
+            return false;   
         }
 
         private static void MoveEmptyCell(int newRow, int newCol)

@@ -43,11 +43,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
-    <Compile Include="Interfaces\IMatrixRenderer.cs" />
+    <Compile Include="Contracts\IMatrixRenderer.cs" />
+    <Compile Include="Utils\OutOfMatrixChecker.cs" />
+    <Compile Include="Utils\EmptyCellMover.cs" />
+    <Compile Include="MatrixEmptyCellRandomizator.cs" />
     <Compile Include="MatrixGenerator.cs" />
     <Compile Include="MatrixRenderer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="GameEngine.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scoreboard.cs" />
     <Compile Include="Utils\RandomUtils.cs" />
