@@ -4,36 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameFifteen.Common.Utils;
+using GameFifteen.Common.Contracts;
 
 namespace GameFifteen.Common
 {
-    public class MatrixGenerator
+    public class MatrixGenerator : IMatrixGenerator
     {
-        private MatrixEmptyCellRandomizator matrixRandomizator;
         private int[,] matrix;
         private int matrixLength;
 
-        public MatrixGenerator(int matrixLength, MatrixEmptyCellRandomizator matrixRandomizator)
+        public MatrixGenerator(int matrixLength)
         {
             this.matrixLength = matrixLength;
+            this.matrix = new int[matrixLength, matrixLength];
         }
 
-        private void GenerateMatrix()
+        public int[,] GenerateMatrix()
         {
             int value = 1;
             for (int i = 0; i < this.matrixLength; i++)
             {
                 for (int j = 0; j < this.matrixLength; j++)
                 {
-                    matrix[i, j] = value;
+                    this.matrix[i, j] = value;
                     value++;
                 }
             }
 
-            if (IfEqualMatrix())
-            {
-                GenerateMatrix();
-            }
+            return this.matrix;
+
+            //if (IfEqualMatrix())
+            //{
+            //    GenerateMatrix();
+            //}
         }
+
+        
     }
 }

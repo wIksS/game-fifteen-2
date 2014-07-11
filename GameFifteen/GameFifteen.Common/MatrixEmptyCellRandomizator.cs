@@ -9,17 +9,11 @@ namespace GameFifteen.Common
 {
     class MatrixEmptyCellRandomizator
     {
-        private int[,] matrix;
         private int[] dirR = new int[4] { -1, 0, 1, 0 };
         private int[] dirC = new int[4] { 0, 1, 0, -1 };
         private Point emptyPoint = new Point(3,3);
 
-        public MatrixEmptyCellRandomizator(int[,] matrix)
-        {
-            this.matrix = matrix;
-        }
-
-        public void Randomize()
+        public Point Randomize(int[,] matrix)
         {
             int randomizeMoves = RandomUtils.GetRandomNumber(10, 21);
             for (int i = 0; i < randomizeMoves; i++)
@@ -27,16 +21,18 @@ namespace GameFifteen.Common
                 int randomDirection = RandomUtils.GetRandomNumber(4);
                 Point newEmptyPoint = new Point(emptyPoint.Row + dirR[randomDirection], emptyPoint.Col + dirC[randomDirection]);
 
-                if (OutOfMatrixChecker.CheckIfOutOfMatrix(newEmptyPoint, this.matrix.GetLength(0)))
+                if (OutOfMatrixChecker.CheckIfOutOfMatrix(newEmptyPoint, matrix.GetLength(0)))
                 {
                     i--;
                     continue;
                 }
                 else
                 {
-                    EmptyCellMover.MoveEmptyCell(emptyPoint,newEmptyPoint,this.matrix);
+                    EmptyCellMover.MoveEmptyCell(emptyPoint,newEmptyPoint,matrix);
                 }
             }
+
+            return emptyPoint;
         }
     }
 }

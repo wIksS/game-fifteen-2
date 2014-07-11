@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameFifteen.Common.Interfaces;
+using GameFifteen.Common.Contracts;
 
 namespace GameFifteen.Common
 {
@@ -12,10 +12,10 @@ namespace GameFifteen.Common
         public void Render(int[,] matrix)
         {
             Console.WriteLine(" -------------");
-            for (int i = 0; i < matrix.Length; i++)
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 Console.Write("|");
-                for (int j = 0; j < matrix.Length; j++)
+                for (int j = 0; j < matrix.GetLength(0); j++)
                 {
                     if (matrix[i, j] <= 9)
                     {
@@ -32,7 +32,7 @@ namespace GameFifteen.Common
                             Console.Write(" {0}", matrix[i, j]);
                         }
                     }
-                    if (j == matrix.Length - 1)
+                    if (j == matrix.GetLength(0) - 1)
                     {
                         Console.Write(" |\n");
                     }

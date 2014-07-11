@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace GameFifteen.Common.Contracts
 {
-    interface IMatrixRenderer
+    public interface IEqualMatrixChecker
     {
-        void Render(int[,] matrix);
+        bool CheckMatrix(int[,] matrix);
     }
 }

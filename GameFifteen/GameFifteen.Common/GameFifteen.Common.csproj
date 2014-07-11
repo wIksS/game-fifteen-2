@@ -43,7 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
+    <Compile Include="Contracts\IEqualMatrixChecker.cs" />
+    <Compile Include="Contracts\IMatrixGenerator.cs" />
     <Compile Include="Contracts\IMatrixRenderer.cs" />
+    <Compile Include="EqualMatrixChecker.cs" />
     <Compile Include="Utils\OutOfMatrixChecker.cs" />
     <Compile Include="Utils\EmptyCellMover.cs" />
     <Compile Include="MatrixEmptyCellRandomizator.cs" />

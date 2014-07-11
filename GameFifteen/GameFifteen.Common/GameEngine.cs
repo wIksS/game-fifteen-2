@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Wintellect.PowerCollections;
-using GameFifteen.Common.Interfaces;
+using GameFifteen.Common.Contracts;
 
 namespace GameFifteen.Common
 {
@@ -11,53 +11,22 @@ namespace GameFifteen.Common
 
     public class GameEngine
     {
-
+        static int[] dirR = new int[4] { -1, 0, 1, 0 };
+        static int[] dirC = new int[4] { 0, 1, 0, -1 };
         static Random r = new Random();
         public const int MatrixLength = 4;
+        static Point emptyPoint = new Point(3, 3);
         static int[,] sol = new int[MatrixLength, MatrixLength] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, 
                                                                      { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
         static int[,] currentMatrix = new int[MatrixLength, MatrixLength] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 },
                                                                           { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
         static OrderedMultiDictionary<int, string> scoreboard = new OrderedMultiDictionary<int, string>(true);
 
-        private static bool IfOutOfMAtrix(int row, int col)
-        {
-            if (row >= MatrixLength || row < 0 || col < 0 || col >= MatrixLength)
-            {
-                return true;
-            }
-
-            return false;   
-        }
-
-        private static void MoveEmptyCell(int newRow, int newCol)
-        {
-            int swapValue = currentMatrix[newRow, newCol];
-            currentMatrix[newRow, newCol] = 16;
-            currentMatrix[emptyRow, emptyCol] = swapValue;
-            emptyRow = newRow;
-            emptyCol = newCol;
-        }
 
         private static void PrintWelcome()
         {
             Console.WriteLine("Welcome to the game “15”. Please try to arrange the numbers sequentially.\n" +
             "Use 'top' to view the top scoreboard, 'restart' to start a new game and \n'exit' to quit the game.");
-        }
-
-        private static bool IfEqualMatrix()
-        {
-            for (int i = 0; i < MatrixLength; i++)
-            {
-                for (int j = 0; j < MatrixLength; j++)
-                {
-                    if (currentMatrix[i, j] != sol[i, j])
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
         }
 
         private static bool IfGoesToBoard(int moves)
@@ -139,7 +108,12 @@ namespace GameFifteen.Common
         {
             MatrixGenerator matrixGenerator = new MatrixGenerator(MatrixLength);
             IMatrixRenderer matrixRenderer = new MatrixRenderer();
-            matrixGenerator.Generate();
+            currentMatrix = matrixGenerator.GenerateMatrix();
+            MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
+            emptyPoint = matrixRandomizator.Randomize(currentMatrix);
+            int matrixLength = currentMatrix.GetLength(0);
+            IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(matrixLength, new MatrixGenerator(matrixLength));
+
             //GenerateMatrix();
             PrintWelcome();
             matrixRenderer.Render(currentMatrix);
@@ -151,11 +125,11 @@ namespace GameFifteen.Common
             while (inputString.CompareTo("exit") != 0)
             {
                 ExecuteComand(inputString, ref moves);
-                if (IfEqualMatrix())
+                if (equalMatrixChecker.CheckMatrix(currentMatrix))
                 {
                     GameWon(moves);
                     pe4at();
-                    matrixGenerator.Generate();
+                    currentMatrix = matrixGenerator.GenerateMatrix();
                     PrintWelcome();
                     matrixRenderer.Render(currentMatrix);
                     moves = 0;
@@ -173,12 +147,14 @@ namespace GameFifteen.Common
         {
             MatrixGenerator matrixGenerator = new MatrixGenerator(MatrixLength);
             IMatrixRenderer matrixRenderer = new MatrixRenderer();
+            int matrixLength = currentMatrix.GetLength(0);
+            IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(matrixLength, new MatrixGenerator(matrixLength));
 
             switch (inputString)
             {
                 case "restart":
                     moves = 0;
-                    matrixGenerator.Generate();
+                    currentMatrix = matrixGenerator.GenerateMatrix();
                     PrintWelcome();
                     matrixRenderer.Render(currentMatrix);
                     break;
@@ -198,13 +174,12 @@ namespace GameFifteen.Common
                     }
                     if (number < 16 && number > 0)
                     {
-                        int newRow = 0;
-                        int newCol = 0;
+                        Point newPoint = new Point(0, 0);
                         for (int i = 0; i < 4; i++)
                         {
-                            newRow = emptyRow + dirR[i];
-                            newCol = emptyCol + dirC[i];
-                            if (IfOutOfMAtrix(newRow, newCol))
+                            newPoint.Row = emptyPoint.Row + dirR[i];
+                            newPoint.Col = emptyPoint.Col + dirC[i];
+                            if (OutOfMatrixChecker.CheckIfOutOfMatrix(newPoint,matrixLength))
                             {
                                 if (i == 3)
                                 {
@@ -212,9 +187,9 @@ namespace GameFifteen.Common
                                 }
                                 continue;
                             }
-                            if (currentMatrix[newRow, newCol] == number)
+                            if (currentMatrix[newPoint.Row, newPoint.Col] == number)
                             {
-                                MoveEmptyCell(newRow, newCol);
+                                EmptyCellMover.MoveEmptyCell(emptyPoint,new Point(newPoint.Row,newPoint.Col),currentMatrix);
                                 moves++;
                                 matrixRenderer.Render(currentMatrix);
                                 break;

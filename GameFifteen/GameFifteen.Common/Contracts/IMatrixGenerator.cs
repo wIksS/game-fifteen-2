@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace GameFifteen.Common.Contracts
 {
-    interface IMatrixRenderer
+    public interface IMatrixGenerator
     {
-        void Render(int[,] matrix);
+        int[,] GenerateMatrix();
     }
 }

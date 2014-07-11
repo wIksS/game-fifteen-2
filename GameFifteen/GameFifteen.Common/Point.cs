@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameFifteen.Common
 {
-    struct Point
+    public class Point
     {
         private int row;
         private int col;
