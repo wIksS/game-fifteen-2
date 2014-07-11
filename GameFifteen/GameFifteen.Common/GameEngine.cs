@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Wintellect.PowerCollections;
+using GameFifteen.Common.Interfaces;
 
-namespace GameFifteen
+namespace GameFifteen.Common
 {
     // pozdravi na vsi4ki ot pernik!
 
-    class Program
+    public class GameEngine
     {
+
         static Random r = new Random();
         public const int MatrixLength = 4;
         static int[,] sol = new int[MatrixLength, MatrixLength] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, 
@@ -22,51 +24,12 @@ namespace GameFifteen
         static int[] dirC = new int[4] { 0, 1, 0, -1 };
         static OrderedMultiDictionary<int, string> scoreboard = new OrderedMultiDictionary<int, string>(true);
 
-        private static void GenerateMatrix()
-        {
-            int value = 1;
-            for (int i = 0; i < MatrixLength; i++)
-            {
-                for (int j = 0; j < MatrixLength; j++)
-                {
-                    currentMatrix[i, j] = value;
-                    value++;
-                }
-            }
-            int ramizeMoves = r.Next(10, 21);
-
-            for (int i = 0; i < ramizeMoves; i++)
-            {
-                int randomDirection = r.Next(4);
-                int newRow = emptyRow + dirR[randomDirection];
-                int newCol = emptyCol + dirC[randomDirection];
-                if (IfOutOfMAtrix(newRow, newCol))
-                {
-                    i--;
-                    continue;
-                }
-                else
-                {
-                    MoveEmptyCell(newRow, newCol);
-                }
-            }
-            if (IfEqualMatrix())
-            {
-                GenerateMatrix();
-
-
-
-            }
-        }
-
         private static bool IfOutOfMAtrix(int row, int col)
         {
             if (row >= MatrixLength || row < 0 || col < 0 || col >= MatrixLength)
             {
                 return true;
             }
-
-
 
             return false;
         }
@@ -78,47 +41,6 @@ namespace GameFifteen
             currentMatrix[emptyRow, emptyCol] = swapValue;
             emptyRow = newRow;
             emptyCol = newCol;
-
-
-
-        }
-
-        private static void PrintMatrix()
-        {
-            Console.WriteLine(" -------------");
-            for (int i = 0; i < MatrixLength; i++)
-            {
-                Console.Write("|");
-                for (int j = 0; j < MatrixLength; j++)
-                {
-                    if (currentMatrix[i, j] <= 9)
-                    {
-                        Console.Write("  {0}", currentMatrix[i, j]);
-                    }
-
-
-
-                    else
-                    {
-                        if (currentMatrix[i, j] == 16)
-                        {
-                            Console.Write("   ");
-                        }
-                        else
-                        {
-                            Console.Write(" {0}", currentMatrix[i, j]);
-                        }
-                    }
-                    if (j == MatrixLength - 1)
-                    {
-
-
-
-                        Console.Write(" |\n");
-                    }
-                }
-            }
-            Console.WriteLine(" -------------");
         }
 
         private static void PrintWelcome()
@@ -217,16 +139,16 @@ namespace GameFifteen
             Console.WriteLine();
         }
 
-        static void Main()
+        public void Start()
         {
-            GenerateMatrix();
+            MatrixGenerator matrixGenerator = new MatrixGenerator(MatrixLength);
+            IMatrixRenderer matrixRenderer = new MatrixRenderer();
+            matrixGenerator.Generate();
+            //GenerateMatrix();
             PrintWelcome();
-            PrintMatrix();
-            MainAlgorithm();
-        }
+            matrixRenderer.Render(currentMatrix);
 
-        private static void MainAlgorithm()
-        {
+            // main algorithm
             int moves = 0;
             Console.Write("Enter a number to move: ");
             string inputString = Console.ReadLine();
@@ -237,9 +159,9 @@ namespace GameFifteen
                 {
                     GameWon(moves);
                     pe4at();
-                    GenerateMatrix();
+                    matrixGenerator.Generate();
                     PrintWelcome();
-                    PrintMatrix();
+                    matrixRenderer.Render(currentMatrix);
                     moves = 0;
                 }
                 Console.Write("Enter a number to move: ");
@@ -250,20 +172,24 @@ namespace GameFifteen
             }
             Console.WriteLine("Good bye!");
         }
+
         private static void ExecuteComand(string inputString, ref int moves)
         {
+            MatrixGenerator matrixGenerator = new MatrixGenerator(MatrixLength);
+            IMatrixRenderer matrixRenderer = new MatrixRenderer();
+
             switch (inputString)
             {
                 case "restart":
                     moves = 0;
-                    GenerateMatrix();
+                    matrixGenerator.Generate();
                     PrintWelcome();
-                    PrintMatrix();
+                    matrixRenderer.Render(currentMatrix);
                     break;
 
                 case "top":
                     pe4at();
-                    PrintMatrix();
+                    matrixRenderer.Render(currentMatrix);
                     break;
 
                 default:
@@ -294,7 +220,7 @@ namespace GameFifteen
                             {
                                 MoveEmptyCell(newRow, newCol);
                                 moves++;
-                                PrintMatrix();
+                                matrixRenderer.Render(currentMatrix);
                                 break;
                             }
                             if (i == 3)

@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using GameFifteen.Common.Interfaces;
+
+namespace GameFifteen.Common
+{
+    public class MatrixRenderer : IMatrixRenderer
+    {
+        public void Render(int[,] matrix)
+        {
+            Console.WriteLine(" -------------");
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                Console.Write("|");
+                for (int j = 0; j < matrix.Length; j++)
+                {
+                    if (matrix[i, j] <= 9)
+                    {
+                        Console.Write("  {0}", matrix[i, j]);
+                    }
+                    else
+                    {
+                        if (matrix[i, j] == 16)
+                        {
+                            Console.Write("   ");
+                        }
+                        else
+                        {
+                            Console.Write(" {0}", matrix[i, j]);
+                        }
+                    }
+                    if (j == matrix.Length - 1)
+                    {
+                        Console.Write(" |\n");
+                    }
+                }
+            }
+
+            Console.WriteLine(" -------------");
+        }
+    }
+}

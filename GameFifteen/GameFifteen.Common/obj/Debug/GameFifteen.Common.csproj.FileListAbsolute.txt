@@ -5,3 +5,10 @@ E:\KPK\TW\GameFifteen\GameFifteen.Common\bin\Debug\PowerCollections.xml
 E:\KPK\TW\GameFifteen\GameFifteen.Common\obj\Debug\GameFifteen.Common.csprojResolveAssemblyReference.cache
 E:\KPK\TW\GameFifteen\GameFifteen.Common\obj\Debug\GameFifteen.Common.dll
 E:\KPK\TW\GameFifteen\GameFifteen.Common\obj\Debug\GameFifteen.Common.pdb
+C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.Common\bin\Debug\GameFifteen.Common.dll
+C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.Common\bin\Debug\GameFifteen.Common.pdb
+C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.Common\bin\Debug\PowerCollections.dll
+C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.Common\bin\Debug\PowerCollections.xml
+C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.Common\obj\Debug\GameFifteen.Common.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.Common\obj\Debug\GameFifteen.Common.dll
+C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.Common\obj\Debug\GameFifteen.Common.pdb
