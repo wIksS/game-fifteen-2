@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GameFifteen.Common.Contracts;
-
-namespace GameFifteen.Common
+﻿namespace GameFifteen.Common
 {
+    using System;
+    using GameFifteen.Common.Contracts;
+
     public class MatrixRenderer : IMatrixRenderer
     {
         public void Render(int[,] matrix)
