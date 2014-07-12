@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GameFifteen.Common.Contracts;
-
-namespace GameFifteen.Common
+﻿namespace GameFifteen.Common
 {
+    using GameFifteen.Common.Contracts;
+
     public class EqualMatrixChecker : IEqualMatrixChecker
     {
-        private int[,] matrix;
+        private int[,] gameMatrix;
 
         public EqualMatrixChecker(int matrixLength, IMatrixGenerator matrixGenerator)
         {
-            this.matrix = matrixGenerator.GenerateMatrix();
+            this.gameMatrix = matrixGenerator.GenerateMatrix();
         }
 
         public bool CheckMatrix(int[,] currentMatrix)
         {
-            for (int i = 0; i < this.matrix.GetLength(0); i++)
+            for (int i = 0; i < this.gameMatrix.GetLength(0); i++)
             {
-                for (int j = 0; j < this.matrix.GetLength(0); j++)
+                for (int j = 0; j < this.gameMatrix.GetLength(0); j++)
                 {
-                    if (currentMatrix[i, j] != this.matrix[i, j])
+                    if (currentMatrix[i, j] != this.gameMatrix[i, j])
                     {
                         return false;
                     }

@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Wintellect.PowerCollections;
-using GameFifteen.Common.Contracts;
-
-namespace GameFifteen.Common
+﻿namespace GameFifteen.Common
 {
-    // pozdravi na vsi4ki ot pernik!
+    using System;
+    using System.Linq;
+    using Wintellect.PowerCollections;
+    using GameFifteen.Common.Contracts;
 
     public class GameEngine
     {
-        static int[] dirR = new int[4] { -1, 0, 1, 0 };
-        static int[] dirC = new int[4] { 0, 1, 0, -1 };
-        static Random r = new Random();
-        public const int MatrixLength = 4;
-        static Point emptyPoint = new Point(3, 3);
-        static int[,] sol = new int[MatrixLength, MatrixLength] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, 
-                                                                     { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
-        static int[,] currentMatrix = new int[MatrixLength, MatrixLength] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 },
+        const int GAME_DIRECTIONS_COUNT = 4;
+        const int GAME_BOARD_SIZE = 4;
+        const int INIT_POINT_POSITION = 3;
+
+        static int[] directionRow = new int[GAME_DIRECTIONS_COUNT] { -1, 0, 1, 0 };
+        static int[] directionColumn = new int[GAME_DIRECTIONS_COUNT] { 0, 1, 0, -1 };
+        static Point emptyPoint = new Point(INIT_POINT_POSITION, INIT_POINT_POSITION);
+        static int[,] currentMatrix = new int[GAME_BOARD_SIZE, GAME_BOARD_SIZE] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 },
                                                                           { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
         static OrderedMultiDictionary<int, string> scoreboard = new OrderedMultiDictionary<int, string>(true);
 
@@ -106,7 +102,7 @@ namespace GameFifteen.Common
 
         public void Start()
         {
-            MatrixGenerator matrixGenerator = new MatrixGenerator(MatrixLength);
+            MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
             IMatrixRenderer matrixRenderer = new MatrixRenderer();
             currentMatrix = matrixGenerator.GenerateMatrix();
             MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
@@ -129,7 +125,7 @@ namespace GameFifteen.Common
                 {
                     GameWon(moves);
                     pe4at();
-                    emptyPoint = new Point(3, 3);
+                    emptyPoint = new Point(INIT_POINT_POSITION, INIT_POINT_POSITION);
                     currentMatrix = matrixGenerator.GenerateMatrix();
                     emptyPoint = matrixRandomizator.Randomize(currentMatrix);
                     PrintWelcome();
@@ -147,7 +143,7 @@ namespace GameFifteen.Common
 
         private static void ExecuteComand(string inputString, ref int moves)
         {
-            MatrixGenerator matrixGenerator = new MatrixGenerator(MatrixLength);
+            MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
             IMatrixRenderer matrixRenderer = new MatrixRenderer();
             int matrixLength = currentMatrix.GetLength(0);
             IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(matrixLength, new MatrixGenerator(matrixLength));
@@ -156,7 +152,7 @@ namespace GameFifteen.Common
             {
                 case "restart":
                     moves = 0;
-                    emptyPoint = new Point(3, 3);
+                    emptyPoint = new Point(INIT_POINT_POSITION, INIT_POINT_POSITION);
                     currentMatrix = matrixGenerator.GenerateMatrix();
                     MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
                     emptyPoint = matrixRandomizator.Randomize(currentMatrix);
@@ -182,8 +178,8 @@ namespace GameFifteen.Common
                         Point newPoint = new Point(0, 0);
                         for (int i = 0; i < 4; i++)
                         {
-                            newPoint.Row = emptyPoint.Row + dirR[i];
-                            newPoint.Col = emptyPoint.Col + dirC[i];
+                            newPoint.Row = emptyPoint.Row + directionRow[i];
+                            newPoint.Col = emptyPoint.Col + directionColumn[i];
                             if (OutOfMatrixChecker.CheckIfOutOfMatrix(newPoint, matrixLength))
                             {
                                 if (i == 3)
