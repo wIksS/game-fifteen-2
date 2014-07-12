@@ -12,3 +12,10 @@ C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.Common\bin\Deb
 C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.Common\obj\Debug\GameFifteen.Common.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.Common\obj\Debug\GameFifteen.Common.dll
 C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.Common\obj\Debug\GameFifteen.Common.pdb
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.Common\bin\Debug\GameFifteen.Common.dll
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.Common\bin\Debug\GameFifteen.Common.pdb
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.Common\bin\Debug\PowerCollections.dll
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.Common\bin\Debug\PowerCollections.xml
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.Common\obj\Debug\GameFifteen.Common.csprojResolveAssemblyReference.cache
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.Common\obj\Debug\GameFifteen.Common.dll
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.Common\obj\Debug\GameFifteen.Common.pdb

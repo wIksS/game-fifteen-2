@@ -7,3 +7,12 @@ E:\KPK\TW\GameFifteen\GameFifteen.CommonTests\bin\Debug\PowerCollections.xml
 E:\KPK\TW\GameFifteen\GameFifteen.CommonTests\obj\Debug\GameFifteen.Common.Tests.csprojResolveAssemblyReference.cache
 E:\KPK\TW\GameFifteen\GameFifteen.CommonTests\obj\Debug\GameFifteen.CommonTests.dll
 E:\KPK\TW\GameFifteen\GameFifteen.CommonTests\obj\Debug\GameFifteen.CommonTests.pdb
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.CommonTests\bin\Debug\GameFifteen.CommonTests.dll
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.CommonTests\bin\Debug\GameFifteen.CommonTests.pdb
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.CommonTests\bin\Debug\GameFifteen.Common.dll
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.CommonTests\bin\Debug\PowerCollections.dll
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.CommonTests\bin\Debug\GameFifteen.Common.pdb
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.CommonTests\bin\Debug\PowerCollections.xml
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.CommonTests\obj\Debug\GameFifteen.Common.Tests.csprojResolveAssemblyReference.cache
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.CommonTests\obj\Debug\GameFifteen.CommonTests.dll
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.CommonTests\obj\Debug\GameFifteen.CommonTests.pdb

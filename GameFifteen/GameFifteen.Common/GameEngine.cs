@@ -129,7 +129,9 @@ namespace GameFifteen.Common
                 {
                     GameWon(moves);
                     pe4at();
+                    emptyPoint = new Point(3, 3);
                     currentMatrix = matrixGenerator.GenerateMatrix();
+                    emptyPoint = matrixRandomizator.Randomize(currentMatrix);
                     PrintWelcome();
                     matrixRenderer.Render(currentMatrix);
                     moves = 0;
@@ -154,7 +156,10 @@ namespace GameFifteen.Common
             {
                 case "restart":
                     moves = 0;
+                    emptyPoint = new Point(3, 3);
                     currentMatrix = matrixGenerator.GenerateMatrix();
+                    MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
+                    emptyPoint = matrixRandomizator.Randomize(currentMatrix);
                     PrintWelcome();
                     matrixRenderer.Render(currentMatrix);
                     break;
@@ -179,7 +184,7 @@ namespace GameFifteen.Common
                         {
                             newPoint.Row = emptyPoint.Row + dirR[i];
                             newPoint.Col = emptyPoint.Col + dirC[i];
-                            if (OutOfMatrixChecker.CheckIfOutOfMatrix(newPoint,matrixLength))
+                            if (OutOfMatrixChecker.CheckIfOutOfMatrix(newPoint, matrixLength))
                             {
                                 if (i == 3)
                                 {
@@ -189,7 +194,7 @@ namespace GameFifteen.Common
                             }
                             if (currentMatrix[newPoint.Row, newPoint.Col] == number)
                             {
-                                EmptyCellMover.MoveEmptyCell(emptyPoint,new Point(newPoint.Row,newPoint.Col),currentMatrix);
+                                EmptyCellMover.MoveEmptyCell(emptyPoint, new Point(newPoint.Row, newPoint.Col), currentMatrix);
                                 moves++;
                                 matrixRenderer.Render(currentMatrix);
                                 break;

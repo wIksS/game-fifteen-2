@@ -18,3 +18,13 @@ C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.UI\bin\Debug\P
 C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.UI\bin\Debug\GameFifteen.Common.pdb
 C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.UI\bin\Debug\PowerCollections.xml
 C:\Users\User\Desktop\Team-Game-Fifteen-2\GameFifteen\GameFifteen.UI\obj\Debug\GameFifteen.UI.csprojResolveAssemblyReference.cache
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.UI\bin\Debug\GameFifteen.UI.exe.config
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.UI\obj\Debug\GameFifteen.UI.exe
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.UI\obj\Debug\GameFifteen.UI.pdb
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.UI\bin\Debug\GameFifteen.UI.exe
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.UI\bin\Debug\GameFifteen.UI.pdb
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.UI\bin\Debug\GameFifteen.Common.dll
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.UI\bin\Debug\PowerCollections.dll
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.UI\bin\Debug\GameFifteen.Common.pdb
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.UI\bin\Debug\PowerCollections.xml
+D:\Telerik\09. JavaScript OOP\Team Game-fifteen-2\GameFifteen\GameFifteen.UI\obj\Debug\GameFifteen.UI.csprojResolveAssemblyReference.cache
