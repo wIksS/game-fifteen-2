@@ -4,15 +4,14 @@
     using System.Linq;
     using Wintellect.PowerCollections;
     using GameFifteen.Common.Contracts;
+    using GameFifteen.Common.Utils;
 
     public class GameEngine
     {
-        const int GAME_DIRECTIONS_COUNT = 4;
+        // TODO moove common constants to game settings
         const int GAME_BOARD_SIZE = 4;
         const int INIT_POINT_POSITION = 3;
 
-        static int[] directionRow = new int[GAME_DIRECTIONS_COUNT] { -1, 0, 1, 0 };
-        static int[] directionColumn = new int[GAME_DIRECTIONS_COUNT] { 0, 1, 0, -1 };
         static Point emptyPoint = new Point(INIT_POINT_POSITION, INIT_POINT_POSITION);
         static int[,] currentMatrix = new int[GAME_BOARD_SIZE, GAME_BOARD_SIZE] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 },
                                                                           { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
@@ -178,8 +177,8 @@
                         Point newPoint = new Point(0, 0);
                         for (int i = 0; i < 4; i++)
                         {
-                            newPoint.Row = emptyPoint.Row + directionRow[i];
-                            newPoint.Col = emptyPoint.Col + directionColumn[i];
+                            newPoint.Row = emptyPoint.Row + Directions.GetDirection(i).Row;
+                            newPoint.Col = emptyPoint.Col + Directions.GetDirection(i).Col;
                             if (OutOfMatrixChecker.CheckIfOutOfMatrix(newPoint, matrixLength))
                             {
                                 if (i == 3)
