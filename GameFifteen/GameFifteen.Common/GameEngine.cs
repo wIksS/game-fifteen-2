@@ -10,11 +10,10 @@
     {
         // TODO moove common constants to game settings
         const int GAME_BOARD_SIZE = 4;
-        const int INIT_POINT_POSITION = 3;
+        //const int INIT_POINT_POSITION = 3;
 
-        static Point emptyPoint = new Point(INIT_POINT_POSITION, INIT_POINT_POSITION);
-        static int[,] currentMatrix = new int[GAME_BOARD_SIZE, GAME_BOARD_SIZE] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 },
-                                                                          { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+        static Point emptyPoint = new Point(GAME_BOARD_SIZE - 1, GAME_BOARD_SIZE - 1);
+        static int[,] currentMatrix = new int[GAME_BOARD_SIZE, GAME_BOARD_SIZE];
         static OrderedMultiDictionary<int, string> scoreboard = new OrderedMultiDictionary<int, string>(true);
 
 
@@ -124,7 +123,7 @@
                 {
                     GameWon(moves);
                     pe4at();
-                    emptyPoint = new Point(INIT_POINT_POSITION, INIT_POINT_POSITION);
+                    emptyPoint = new Point(GAME_BOARD_SIZE - 1, GAME_BOARD_SIZE - 1);
                     currentMatrix = matrixGenerator.GenerateMatrix();
                     emptyPoint = matrixRandomizator.Randomize(currentMatrix);
                     PrintWelcome();
@@ -151,7 +150,7 @@
             {
                 case "restart":
                     moves = 0;
-                    emptyPoint = new Point(INIT_POINT_POSITION, INIT_POINT_POSITION);
+                    emptyPoint = new Point(GAME_BOARD_SIZE - 1, GAME_BOARD_SIZE - 1);
                     currentMatrix = matrixGenerator.GenerateMatrix();
                     MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
                     emptyPoint = matrixRandomizator.Randomize(currentMatrix);
@@ -207,7 +206,6 @@
                     }
                     break;
             }
-
         }
     }
 }
