@@ -9,7 +9,12 @@
         {
             IMatrixRenderer renderer = new MatrixRenderer();
             GameEngine gameEngine = new GameEngine();
-            gameEngine.Start(renderer);
+
+            do
+            {
+                gameEngine.StartNewGame(renderer);
+            }
+            while (GameEngine.PlayAgain);
         }
     }
 }

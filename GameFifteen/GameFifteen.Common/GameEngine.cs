@@ -10,6 +10,7 @@
     {
         // TODO moove common constants to game settings
         const int GAME_BOARD_SIZE = 4;
+        public static bool PlayAgain = true;
         //const int INIT_POINT_POSITION = 3;
 
         static Point emptyPoint = new Point(GAME_BOARD_SIZE - 1, GAME_BOARD_SIZE - 1);
@@ -96,7 +97,7 @@
             Console.WriteLine();
         }
 
-        public void Start(IMatrixRenderer matrixRenderer)
+        public void StartNewGame(IMatrixRenderer matrixRenderer)
         {
             int matrixLength = currentMatrix.GetLength(0);
             IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(new MatrixGenerator(matrixLength));
@@ -104,56 +105,50 @@
             currentMatrix = matrixGenerator.GenerateMatrix();
             MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
             emptyPoint = matrixRandomizator.Randomize(currentMatrix);
+            bool gameEnd = false;
 
             PrintWelcome();
 
             // main algorithm
             int moves = 0;
             string inputString = "";
-            while (inputString.CompareTo("exit") != 0)
+            while (true)
             {
                 matrixRenderer.Render(currentMatrix);
-                if (equalMatrixChecker.IsSorted(currentMatrix))  //I think this is the IsGameWon check
+                if (equalMatrixChecker.IsSorted(currentMatrix))  // IsGameWon check
                 {
                     GameWon(moves);
-                    PrinntScoreBoard(); //scoreboard
-                    emptyPoint = new Point(GAME_BOARD_SIZE - 1, GAME_BOARD_SIZE - 1);
-                    currentMatrix = matrixGenerator.GenerateMatrix();
-                    emptyPoint = matrixRandomizator.Randomize(currentMatrix);
-                    PrintWelcome();
-                    moves = 0;
-                    continue;
+                    PrinntScoreBoard();
+                    return;
                 }
+
                 Console.Write("Enter a number to move: ");
                 inputString = Console.ReadLine();
-                ExecuteComand(inputString, ref moves);
 
-
+                gameEnd = ExecuteComand(inputString, ref moves);
+                if (gameEnd)
+                {
+                    return;
+                }
             }
-            Console.WriteLine("Good bye!");
         }
 
-        private static void ExecuteComand(string inputString, ref int moves)
+        private static bool ExecuteComand(string inputString, ref int moves)
         {
-            MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
             int matrixLength = currentMatrix.GetLength(0);
-            IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(new MatrixGenerator(matrixLength));
 
             switch (inputString)
             {
+                case "exit":
+                    PlayAgain = false;
+                    Console.WriteLine("Good bye!");
+                    return true;
+
                 case "restart":
-                    moves = 0;
-                    emptyPoint = new Point(GAME_BOARD_SIZE - 1, GAME_BOARD_SIZE - 1);
-                    currentMatrix = matrixGenerator.GenerateMatrix();
-                    MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
-                    emptyPoint = matrixRandomizator.Randomize(currentMatrix);
-                    PrintWelcome();
-                    //matrixRenderer.Render(currentMatrix);
-                    break;
+                    return true;
 
                 case "top":
                     PrinntScoreBoard();
-                    //matrixRenderer.Render(currentMatrix);
                     break;
 
                 default:
@@ -183,7 +178,6 @@
                             {
                                 EmptyCellMover.MoveEmptyCell(emptyPoint, new Point(newPoint.Row, newPoint.Col), currentMatrix);
                                 moves++;
-                                //matrixRenderer.Render(currentMatrix);
                                 break;
                             }
                             if (i == 3)
@@ -199,6 +193,8 @@
                     }
                     break;
             }
+
+            return false;
         }
     }
 }
