@@ -3,7 +3,7 @@
     using System;
     using GameFifteen.Common.Contracts;
 
-    public class MatrixRenderer : IMatrixRenderer
+    public class ConsoleRenderer : IConsoleRenderer
     {
         public void Render(int[,] matrix)
         {
@@ -36,6 +36,12 @@
             }
 
             Console.WriteLine(" -------------");
+        }
+
+        public void PrintWelcome()
+        {
+            Console.WriteLine("Welcome to the game “15”. Please try to arrange the numbers sequentially.\n" +
+            "Use 'top' to view the top scoreboard, 'restart' to start a new game and \n'exit' to quit the game.");
         }
     }
 }

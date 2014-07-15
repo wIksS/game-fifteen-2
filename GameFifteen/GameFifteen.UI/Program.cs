@@ -7,14 +7,11 @@
     {
         static void Main(string[] args)
         {
-            IMatrixRenderer renderer = new MatrixRenderer();
+            IConsoleRenderer renderer = new ConsoleRenderer();
+            IConsoleReader inputReader = new ConsoleInput();
             GameEngine gameEngine = new GameEngine();
-
-            do
-            {
-                gameEngine.StartNewGame(renderer);
-            }
-            while (GameEngine.PlayAgain);
+            
+            gameEngine.StartNewGame(renderer, inputReader);
         }
     }
 }
