@@ -113,7 +113,7 @@
             while (inputString.CompareTo("exit") != 0)
             {
                 matrixRenderer.Render(currentMatrix);
-                if (equalMatrixChecker.CheckMatrix(currentMatrix))  //I think this is the IsGameWon check
+                if (equalMatrixChecker.IsSorted(currentMatrix))  //I think this is the IsGameWon check
                 {
                     GameWon(moves);
                     PrinntScoreBoard(); //scoreboard

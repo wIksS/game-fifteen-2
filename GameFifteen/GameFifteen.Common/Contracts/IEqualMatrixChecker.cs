@@ -2,6 +2,6 @@
 {
     public interface IEqualMatrixChecker
     {
-        bool CheckMatrix(int[,] matrix);
+        bool IsSorted(int[,] matrix);
     }
 }
