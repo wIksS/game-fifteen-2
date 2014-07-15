@@ -1,4 +1,4 @@
-﻿namespace GameFifteen.Common
+﻿namespace GameFifteen.UI
 {
     using System;
     using GameFifteen.Common.Contracts;

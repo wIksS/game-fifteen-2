@@ -1,13 +1,15 @@
 ﻿namespace GameFifteen.UI
 {
     using GameFifteen.Common;
+    using GameFifteen.Common.Contracts;
 
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            IMatrixRenderer renderer = new MatrixRenderer();
             GameEngine gameEngine = new GameEngine();
-            gameEngine.Start();
+            gameEngine.Start(renderer);
         }
     }
 }

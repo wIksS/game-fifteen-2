@@ -53,7 +53,6 @@
     <Compile Include="Utils\EmptyCellMover.cs" />
     <Compile Include="MatrixEmptyCellRandomizator.cs" />
     <Compile Include="MatrixGenerator.cs" />
-    <Compile Include="MatrixRenderer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="GameEngine.cs" />
     <Compile Include="Point.cs" />

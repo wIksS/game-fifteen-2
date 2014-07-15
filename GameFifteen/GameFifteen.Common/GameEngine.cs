@@ -98,10 +98,9 @@
             Console.WriteLine();
         }
 
-        public void Start()
+        public void Start(IMatrixRenderer matrixRenderer)
         {
             MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
-            IMatrixRenderer matrixRenderer = new MatrixRenderer();
             currentMatrix = matrixGenerator.GenerateMatrix();
             MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
             emptyPoint = matrixRandomizator.Randomize(currentMatrix);
@@ -118,7 +117,7 @@
             string inputString = Console.ReadLine();
             while (inputString.CompareTo("exit") != 0)
             {
-                ExecuteComand(inputString, ref moves);
+                ExecuteComand(matrixRenderer, inputString, ref moves);
                 if (equalMatrixChecker.CheckMatrix(currentMatrix))
                 {
                     GameWon(moves);
@@ -139,10 +138,9 @@
             Console.WriteLine("Good bye!");
         }
 
-        private static void ExecuteComand(string inputString, ref int moves)
+        private static void ExecuteComand(IMatrixRenderer matrixRenderer, string inputString, ref int moves)
         {
             MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
-            IMatrixRenderer matrixRenderer = new MatrixRenderer();
             int matrixLength = currentMatrix.GetLength(0);
             IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(matrixLength, new MatrixGenerator(matrixLength));
 
