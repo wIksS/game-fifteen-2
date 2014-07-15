@@ -97,7 +97,6 @@
         public void StartNewGame(IConsoleRenderer consoleRenderer, IConsoleReader consoleReader)
         {
             MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
-
             currentMatrix = matrixGenerator.GenerateMatrix();
             MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
             emptyPoint = matrixRandomizator.Randomize(currentMatrix);
@@ -130,7 +129,7 @@
                 inputString = consoleReader.Read();
             }
 
-            // TODO add method in ConsoleRenderer
+            // TODO create method in ConsoleRenderer
             // Console.WriteLine("Good bye!");
         }
 
