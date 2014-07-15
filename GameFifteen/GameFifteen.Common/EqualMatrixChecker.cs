@@ -4,20 +4,21 @@
 
     public class EqualMatrixChecker : IEqualMatrixChecker
     {
-        private int[,] gameMatrix;
+        private readonly int[,] sortedMatrix;
 
-        public EqualMatrixChecker(int matrixLength, IMatrixGenerator matrixGenerator)
+        public EqualMatrixChecker(IMatrixGenerator matrixGenerator)
         {
-            this.gameMatrix = matrixGenerator.GenerateMatrix();
+            this.sortedMatrix = matrixGenerator.GenerateMatrix();
         }
 
-        public bool CheckMatrix(int[,] currentMatrix)
+        // always compares to this.sortedMatrix
+        public bool IsSorted(int[,] currentMatrix)
         {
-            for (int i = 0; i < this.gameMatrix.GetLength(0); i++)
+            for (int i = 0; i < this.sortedMatrix.GetLength(0); i++)
             {
-                for (int j = 0; j < this.gameMatrix.GetLength(0); j++)
+                for (int j = 0; j < this.sortedMatrix.GetLength(0); j++)
                 {
-                    if (currentMatrix[i, j] != this.gameMatrix[i, j])
+                    if (currentMatrix[i, j] != this.sortedMatrix[i, j])
                     {
                         return false;
                     }
