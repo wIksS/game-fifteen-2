@@ -100,36 +100,31 @@
 
         public void Start(IMatrixRenderer matrixRenderer)
         {
-            MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
-            
-            MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
-            
             int matrixLength = currentMatrix.GetLength(0);
             IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(matrixLength, new MatrixGenerator(matrixLength));
+            MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
             currentMatrix = matrixGenerator.GenerateMatrix();
+            MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
             emptyPoint = matrixRandomizator.Randomize(currentMatrix);
 
-            //GenerateMatrix();
             PrintWelcome();
-            //matrixRenderer.Render(currentMatrix);
 
             // main algorithm
             int moves = 0;
-            //Console.Write("Enter a number to move: ");
             string inputString = "";
             while (inputString.CompareTo("exit") != 0)
             {
                 matrixRenderer.Render(currentMatrix);
-                if (equalMatrixChecker.CheckMatrix(currentMatrix))
+                if (equalMatrixChecker.CheckMatrix(currentMatrix))  //I think this is the IsGameWon check
                 {
                     GameWon(moves);
-                    pe4at(); //kakvo pe4ata6?
+                    pe4at(); //win message
                     emptyPoint = new Point(GAME_BOARD_SIZE - 1, GAME_BOARD_SIZE - 1);
                     currentMatrix = matrixGenerator.GenerateMatrix();
                     emptyPoint = matrixRandomizator.Randomize(currentMatrix);
                     PrintWelcome();
-                    //matrixRenderer.Render(currentMatrix);
                     moves = 0;
+                    continue;
                 }
                 Console.Write("Enter a number to move: ");
                 inputString = Console.ReadLine();
