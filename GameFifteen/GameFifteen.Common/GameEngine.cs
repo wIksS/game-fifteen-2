@@ -62,21 +62,21 @@
                 if (IfGoesToBoard(moves))
                 {
                     RemoveLastScore();
-                    tocki(moves);
+                    HighScorePromt(moves);
                 }
             }
             else
             {
-                tocki(moves);
+                HighScorePromt(moves);
             }
         }
-        private static void tocki(int moves)
+        private static void HighScorePromt(int moves)
         {
             Console.Write("Please enter your name for the top scoreboard: ");
             string name = Console.ReadLine();
             scoreboard.Add(moves, name);
         }
-        private static void pe4at()
+        private static void PrinntScoreBoard()
         {
             if (scoreboard.Count == 0)
             {
@@ -87,8 +87,6 @@
             int i = 1;
             foreach (var score in scoreboard)
             {
-
-
                 foreach (var value in score.Value)
                 {
                     Console.WriteLine("{0}. {1} --> {2} moves", i, value, score.Key);
@@ -101,7 +99,7 @@
         public void Start(IMatrixRenderer matrixRenderer)
         {
             int matrixLength = currentMatrix.GetLength(0);
-            IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(matrixLength, new MatrixGenerator(matrixLength));
+            IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(new MatrixGenerator(matrixLength));
             MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
             currentMatrix = matrixGenerator.GenerateMatrix();
             MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
@@ -118,7 +116,7 @@
                 if (equalMatrixChecker.CheckMatrix(currentMatrix))  //I think this is the IsGameWon check
                 {
                     GameWon(moves);
-                    pe4at(); //win message
+                    PrinntScoreBoard(); //scoreboard
                     emptyPoint = new Point(GAME_BOARD_SIZE - 1, GAME_BOARD_SIZE - 1);
                     currentMatrix = matrixGenerator.GenerateMatrix();
                     emptyPoint = matrixRandomizator.Randomize(currentMatrix);
@@ -139,7 +137,7 @@
         {
             MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
             int matrixLength = currentMatrix.GetLength(0);
-            IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(matrixLength, new MatrixGenerator(matrixLength));
+            IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(new MatrixGenerator(matrixLength));
 
             switch (inputString)
             {
@@ -154,7 +152,7 @@
                     break;
 
                 case "top":
-                    pe4at();
+                    PrinntScoreBoard();
                     //matrixRenderer.Render(currentMatrix);
                     break;
 
