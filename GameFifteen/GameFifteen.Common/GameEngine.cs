@@ -101,44 +101,46 @@
         public void Start(IMatrixRenderer matrixRenderer)
         {
             MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
-            currentMatrix = matrixGenerator.GenerateMatrix();
+            
             MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
-            emptyPoint = matrixRandomizator.Randomize(currentMatrix);
+            
             int matrixLength = currentMatrix.GetLength(0);
             IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(matrixLength, new MatrixGenerator(matrixLength));
+            currentMatrix = matrixGenerator.GenerateMatrix();
+            emptyPoint = matrixRandomizator.Randomize(currentMatrix);
 
             //GenerateMatrix();
             PrintWelcome();
-            matrixRenderer.Render(currentMatrix);
+            //matrixRenderer.Render(currentMatrix);
 
             // main algorithm
             int moves = 0;
-            Console.Write("Enter a number to move: ");
-            string inputString = Console.ReadLine();
+            //Console.Write("Enter a number to move: ");
+            string inputString = "";
             while (inputString.CompareTo("exit") != 0)
             {
-                ExecuteComand(matrixRenderer, inputString, ref moves);
+                matrixRenderer.Render(currentMatrix);
                 if (equalMatrixChecker.CheckMatrix(currentMatrix))
                 {
                     GameWon(moves);
-                    pe4at();
+                    pe4at(); //kakvo pe4ata6?
                     emptyPoint = new Point(GAME_BOARD_SIZE - 1, GAME_BOARD_SIZE - 1);
                     currentMatrix = matrixGenerator.GenerateMatrix();
                     emptyPoint = matrixRandomizator.Randomize(currentMatrix);
                     PrintWelcome();
-                    matrixRenderer.Render(currentMatrix);
+                    //matrixRenderer.Render(currentMatrix);
                     moves = 0;
                 }
                 Console.Write("Enter a number to move: ");
                 inputString = Console.ReadLine();
-
+                ExecuteComand(inputString, ref moves);
 
 
             }
             Console.WriteLine("Good bye!");
         }
 
-        private static void ExecuteComand(IMatrixRenderer matrixRenderer, string inputString, ref int moves)
+        private static void ExecuteComand(string inputString, ref int moves)
         {
             MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
             int matrixLength = currentMatrix.GetLength(0);
@@ -153,12 +155,12 @@
                     MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
                     emptyPoint = matrixRandomizator.Randomize(currentMatrix);
                     PrintWelcome();
-                    matrixRenderer.Render(currentMatrix);
+                    //matrixRenderer.Render(currentMatrix);
                     break;
 
                 case "top":
                     pe4at();
-                    matrixRenderer.Render(currentMatrix);
+                    //matrixRenderer.Render(currentMatrix);
                     break;
 
                 default:
@@ -188,7 +190,7 @@
                             {
                                 EmptyCellMover.MoveEmptyCell(emptyPoint, new Point(newPoint.Row, newPoint.Col), currentMatrix);
                                 moves++;
-                                matrixRenderer.Render(currentMatrix);
+                                //matrixRenderer.Render(currentMatrix);
                                 break;
                             }
                             if (i == 3)
