@@ -46,7 +46,7 @@
             {
                 Console.WriteLine("Invalid comand!");
             }
-            if (number < 16 && number > 0)
+            else if (number < 16 && number > 0)
             {
                 Point newPoint = new Point(0, 0);
                 for (int i = 0; i < 4; i++)
