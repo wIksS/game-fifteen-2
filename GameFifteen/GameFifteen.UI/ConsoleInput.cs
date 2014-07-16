@@ -40,25 +40,28 @@
         public void HandleInvalidCommand(IConsoleRenderer matrixRenderer, string inputString, ref int moves, int[,] currentMatrix, Point emptyPoint)
         {
             int number = 0;
+            Direction[] directions = Directions.GetDirection;
+            int directionsCount = directions.GetLength(0);
             int matrixLength = currentMatrix.GetLength(0);
             bool isNumber = int.TryParse(inputString, out number);
             if (!isNumber)
             {
                 Console.WriteLine("Invalid comand!");
             }
-            else if (number < 16 && number > 0)
+            else if (number < directionsCount * directionsCount && number > 0)
             {
                 Point newPoint = new Point(0, 0);
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i <= directionsCount; i++)
                 {
-                    newPoint.Row = emptyPoint.Row + Directions.GetDirection(i).Row;
-                    newPoint.Col = emptyPoint.Col + Directions.GetDirection(i).Col;
+                    if (i == 4)
+                    {
+                        Console.WriteLine("Invalid move");
+                        break;
+                    }
+                    newPoint.Row = emptyPoint.Row + directions[i].Row;
+                    newPoint.Col = emptyPoint.Col + directions[i].Col;
                     if (OutOfMatrixChecker.CheckIfOutOfMatrix(newPoint, matrixLength))
                     {
-                        if (i == 3)
-                        {
-                            Console.WriteLine("Invalid move");
-                        }
                         continue;
                     }
                     if (currentMatrix[newPoint.Row, newPoint.Col] == number)
@@ -67,15 +70,11 @@
                         moves++;
                         break;
                     }
-                    if (i == 3)
-                    {
-                        Console.WriteLine("Invalid move");
-                    }
                 }
             }
             else
             {
-                Console.WriteLine("Invalid move");
+                Console.WriteLine("Invalid number");
             }
         }
     }

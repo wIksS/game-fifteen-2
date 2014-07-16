@@ -17,7 +17,7 @@
             for (int i = 0; i < randomizeMoves; i++)
             {
                 int randomDirection = RandomUtils.GetRandomNumber(MAX_RANDOM_DIRECTION_INDEX);
-                Direction direction = Directions.GetDirection(randomDirection);
+                Direction direction = Directions.GetDirection[randomDirection];
                 Point newEmptyPoint = new Point(emptyPoint.Row + direction.Row, emptyPoint.Col + direction.Col);
 
                 if (OutOfMatrixChecker.CheckIfOutOfMatrix(newEmptyPoint, matrix.GetLength(0)))
