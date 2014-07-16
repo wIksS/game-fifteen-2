@@ -25,7 +25,7 @@
                     int number = 0;
                     if (ValidMooveCommand(ref number, stringInput))
                     {
-                        ExecuteMooveCommand(number, ref moves, currentMatrix, emptyPoint);
+                        GameEngine.ExecuteMooveCommand(number, ref moves, currentMatrix, emptyPoint);
                     }
                     break;
             }
@@ -51,35 +51,6 @@
             }
 
             return true;
-        }
-
-        private void ExecuteMooveCommand(int number, ref int moves, int[,] currentMatrix, Point emptyPoint)
-        {
-            Direction[] directions = Directions.GetDirection;
-            int directionsCount = directions.GetLength(0);
-            int matrixLength = currentMatrix.GetLength(0);
-
-            Point newPoint = new Point(0, 0);
-            for (int i = 0; i <= directionsCount; i++)
-            {
-                if (i == 4)
-                {
-                    Console.WriteLine("Invalid move");
-                    break;
-                }
-                newPoint.Row = emptyPoint.Row + directions[i].Row;
-                newPoint.Col = emptyPoint.Col + directions[i].Col;
-                if (OutOfMatrixChecker.CheckIfOutOfMatrix(newPoint, matrixLength))
-                {
-                    continue;
-                }
-                if (currentMatrix[newPoint.Row, newPoint.Col] == number)
-                {
-                    EmptyCellMover.MoveEmptyCell(emptyPoint, new Point(newPoint.Row, newPoint.Col), currentMatrix);
-                    moves++;
-                    break;
-                }
-            }
         }
 
         // There is no need to create a method for Console.ReadLine(). The interface may be redundant
