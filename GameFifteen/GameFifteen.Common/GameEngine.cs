@@ -4,17 +4,13 @@
     using System.Linq;
     using Wintellect.PowerCollections;
     using GameFifteen.Common.Contracts;
-    using GameFifteen.Common.Utils;
 
     public class GameEngine
     {
         // TODO moove common constants to game settings
         const int GAME_BOARD_SIZE = 4;
         public static bool PlayAgain = true;
-        //const int INIT_POINT_POSITION = 3;
 
-        static Point emptyPoint = new Point(GAME_BOARD_SIZE - 1, GAME_BOARD_SIZE - 1);
-        static int[,] currentMatrix = new int[GAME_BOARD_SIZE, GAME_BOARD_SIZE];
         static OrderedMultiDictionary<int, string> scoreboard = new OrderedMultiDictionary<int, string>(true);
 
         private static bool IfGoesToBoard(int moves)
@@ -96,12 +92,12 @@
 
         public void StartNewGame(IConsoleRenderer consoleRenderer, IConsoleReader consoleReader)
         {
+            MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
+            int[,] currentMatrix = matrixGenerator.GenerateMatrix();
             int matrixLength = currentMatrix.GetLength(0);
             IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(new MatrixGenerator(matrixLength));
-            MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
-            currentMatrix = matrixGenerator.GenerateMatrix();
             MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
-            emptyPoint = matrixRandomizator.Randomize(currentMatrix);
+            Point emptyPoint = matrixRandomizator.Randomize(currentMatrix);
             bool gameEnd = false;
 
             consoleRenderer.PrintWelcome();
@@ -122,56 +118,7 @@
                 Console.Write("Enter a number to move: ");
                 inputString = Console.ReadLine();
 
-                gameEnd = consoleReader.ExecuteComand(consoleRenderer, inputString, ref moves);
-            }
-        }
-
-        // TODO just call PrinntScoreBoard();
-        //public void HandleRenderScoreBoard(IConsoleRenderer matrixRenderer)
-        //{
-        //    PrinntScoreBoard();
-        //}
-
-        // This code reaks
-        public void HandleInvalidCommand(IConsoleRenderer matrixRenderer, string inputString, ref int moves)
-        {
-            int number = 0;
-            int matrixLength = currentMatrix.GetLength(0);
-            bool isNumber = int.TryParse(inputString, out number);
-            if (!isNumber)
-            {
-                Console.WriteLine("Invalid comand!");
-            }
-            if (number < 16 && number > 0)
-            {
-                Point newPoint = new Point(0, 0);
-                for (int i = 0; i < 4; i++)
-                {
-                    newPoint.Row = emptyPoint.Row + Directions.GetDirection(i).Row;
-                    newPoint.Col = emptyPoint.Col + Directions.GetDirection(i).Col;
-                    if (OutOfMatrixChecker.CheckIfOutOfMatrix(newPoint, matrixLength))
-                    {
-                        if (i == 3)
-                        {
-                            Console.WriteLine("Invalid move");
-                        }
-                        continue;
-                    }
-                    if (currentMatrix[newPoint.Row, newPoint.Col] == number)
-                    {
-                        EmptyCellMover.MoveEmptyCell(emptyPoint, new Point(newPoint.Row, newPoint.Col), currentMatrix);
-                        moves++;
-                        break;
-                    }
-                    if (i == 3)
-                    {
-                        Console.WriteLine("Invalid move");
-                    }
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid move");
+                gameEnd = consoleReader.ExecuteComand(consoleRenderer, inputString, ref moves, currentMatrix, emptyPoint);
             }
         }
     }
