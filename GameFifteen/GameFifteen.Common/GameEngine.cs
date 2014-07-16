@@ -109,7 +109,7 @@
             // main algorithm
             int moves = 0;
             string inputString = "";
-            while (true)
+            while (!gameEnd)
             {
                 consoleRenderer.Render(currentMatrix);
                 if (equalMatrixChecker.IsSorted(currentMatrix))  // IsGameWon check
@@ -120,13 +120,10 @@
                 }
 
                 Console.Write("Enter a number to move: ");
+                // TODO moove to input
                 inputString = Console.ReadLine();
 
                 gameEnd = consoleReader.ExecuteComand(consoleRenderer, inputString, ref moves);
-                if (gameEnd)
-                {
-                    return;
-                }
             }
         }
 
