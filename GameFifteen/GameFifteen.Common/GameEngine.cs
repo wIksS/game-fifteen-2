@@ -74,7 +74,7 @@
             scoreboard.Add(moves, name);
         }
 
-        private static void PrinntScoreBoard()
+        public static void PrinntScoreBoard()
         {
             if (scoreboard.Count == 0)
             {
@@ -120,7 +120,6 @@
                 }
 
                 Console.Write("Enter a number to move: ");
-                // TODO moove to input
                 inputString = Console.ReadLine();
 
                 gameEnd = consoleReader.ExecuteComand(consoleRenderer, inputString, ref moves);
@@ -128,12 +127,12 @@
         }
 
         // TODO just call PrinntScoreBoard();
-        public void HandleRenderScoreBoard(IConsoleRenderer matrixRenderer)
-        {
-            PrinntScoreBoard();
-            //matrixRenderer.Render(currentMatrix);
-        }
+        //public void HandleRenderScoreBoard(IConsoleRenderer matrixRenderer)
+        //{
+        //    PrinntScoreBoard();
+        //}
 
+        // This code reaks
         public void HandleInvalidCommand(IConsoleRenderer matrixRenderer, string inputString, ref int moves)
         {
             int number = 0;
@@ -162,7 +161,6 @@
                     {
                         EmptyCellMover.MoveEmptyCell(emptyPoint, new Point(newPoint.Row, newPoint.Col), currentMatrix);
                         moves++;
-                        //matrixRenderer.Render(currentMatrix);
                         break;
                     }
                     if (i == 3)

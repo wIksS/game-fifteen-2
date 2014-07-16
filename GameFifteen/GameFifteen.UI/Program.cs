@@ -16,7 +16,6 @@
                 gameEngine.StartNewGame(renderer, inputReader);
             }
             while (GameEngine.PlayAgain);
-            //gameEngine.StartNewGame(renderer, inputReader);
         }
     }
 }

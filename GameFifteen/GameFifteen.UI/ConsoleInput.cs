@@ -9,7 +9,6 @@
         public bool ExecuteComand(IConsoleRenderer matrixRenderer, string stringInput, ref int moves)
         {
             GameEngine gameEngine = new GameEngine();
-            //var command = Console.ReadLine();
 
             switch (stringInput)
             {
@@ -18,11 +17,9 @@
                     Console.WriteLine("Good bye!");
                     return true;
                 case "restart":
-                    //gameEngine.HandleStartNewGame(matrixRenderer, ref moves);
                     return true;
-                    //break;
                 case "top":
-                    gameEngine.HandleRenderScoreBoard(matrixRenderer);
+                    GameEngine.PrinntScoreBoard();
                     break;
                 default:
                     gameEngine.HandleInvalidCommand(matrixRenderer, stringInput, ref moves);
@@ -31,6 +28,7 @@
             return false;
         }
 
+        // There is no need to create a method for Console.ReadLine(). The interface may be redundant
         public string Read()
         {
             var command = Console.ReadLine();
