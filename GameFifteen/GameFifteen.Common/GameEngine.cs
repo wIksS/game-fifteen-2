@@ -17,13 +17,6 @@
         static int[,] currentMatrix = new int[GAME_BOARD_SIZE, GAME_BOARD_SIZE];
         static OrderedMultiDictionary<int, string> scoreboard = new OrderedMultiDictionary<int, string>(true);
 
-
-        private static void PrintWelcome()
-        {
-            Console.WriteLine("Welcome to the game “15”. Please try to arrange the numbers sequentially.\n" +
-            "Use 'top' to view the top scoreboard, 'restart' to start a new game and \n'exit' to quit the game.");
-        }
-
         private static bool IfGoesToBoard(int moves)
         {
             foreach (var score in scoreboard)
@@ -35,6 +28,7 @@
             }
             return false;
         }
+
         private static void RemoveLastScore()
         {
             if (scoreboard.Last().Value.Count > 0)
@@ -50,6 +44,7 @@
                 scoreboard.Remove(keys.Last());
             }
         }
+
         private static void GameWon(int moves)
         {
             Console.WriteLine("Congratulations! You won the game in {0} moves.", moves);
@@ -71,12 +66,14 @@
                 HighScorePromt(moves);
             }
         }
+
         private static void HighScorePromt(int moves)
         {
             Console.Write("Please enter your name for the top scoreboard: ");
             string name = Console.ReadLine();
             scoreboard.Add(moves, name);
         }
+
         private static void PrinntScoreBoard()
         {
             if (scoreboard.Count == 0)
@@ -97,7 +94,7 @@
             Console.WriteLine();
         }
 
-        public void StartNewGame(IMatrixRenderer matrixRenderer)
+        public void StartNewGame(IConsoleRenderer consoleRenderer, IConsoleReader consoleReader)
         {
             int matrixLength = currentMatrix.GetLength(0);
             IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(new MatrixGenerator(matrixLength));
@@ -107,14 +104,14 @@
             emptyPoint = matrixRandomizator.Randomize(currentMatrix);
             bool gameEnd = false;
 
-            PrintWelcome();
+            consoleRenderer.PrintWelcome();
 
             // main algorithm
             int moves = 0;
             string inputString = "";
             while (true)
             {
-                matrixRenderer.Render(currentMatrix);
+                consoleRenderer.Render(currentMatrix);
                 if (equalMatrixChecker.IsSorted(currentMatrix))  // IsGameWon check
                 {
                     GameWon(moves);
@@ -125,7 +122,7 @@
                 Console.Write("Enter a number to move: ");
                 inputString = Console.ReadLine();
 
-                gameEnd = ExecuteComand(inputString, ref moves);
+                gameEnd = consoleReader.ExecuteComand(consoleRenderer, inputString, ref moves);
                 if (gameEnd)
                 {
                     return;
@@ -133,68 +130,54 @@
             }
         }
 
-        private static bool ExecuteComand(string inputString, ref int moves)
+        // TODO just call PrinntScoreBoard();
+        public void HandleRenderScoreBoard(IConsoleRenderer matrixRenderer)
         {
+            PrinntScoreBoard();
+            //matrixRenderer.Render(currentMatrix);
+        }
+
+        public void HandleInvalidCommand(IConsoleRenderer matrixRenderer, string inputString, ref int moves)
+        {
+            int number = 0;
             int matrixLength = currentMatrix.GetLength(0);
-
-            switch (inputString)
+            bool isNumber = int.TryParse(inputString, out number);
+            if (!isNumber)
             {
-                case "exit":
-                    PlayAgain = false;
-                    Console.WriteLine("Good bye!");
-                    return true;
-
-                case "restart":
-                    return true;
-
-                case "top":
-                    PrinntScoreBoard();
-                    break;
-
-                default:
-                    int number = 0;
-                    bool isNumber = int.TryParse(inputString, out number);
-                    if (!isNumber)
+                Console.WriteLine("Invalid comand!");
+            }
+            if (number < 16 && number > 0)
+            {
+                Point newPoint = new Point(0, 0);
+                for (int i = 0; i < 4; i++)
+                {
+                    newPoint.Row = emptyPoint.Row + Directions.GetDirection(i).Row;
+                    newPoint.Col = emptyPoint.Col + Directions.GetDirection(i).Col;
+                    if (OutOfMatrixChecker.CheckIfOutOfMatrix(newPoint, matrixLength))
                     {
-                        Console.WriteLine("Invalid comand!");
+                        if (i == 3)
+                        {
+                            Console.WriteLine("Invalid move");
+                        }
+                        continue;
+                    }
+                    if (currentMatrix[newPoint.Row, newPoint.Col] == number)
+                    {
+                        EmptyCellMover.MoveEmptyCell(emptyPoint, new Point(newPoint.Row, newPoint.Col), currentMatrix);
+                        moves++;
+                        //matrixRenderer.Render(currentMatrix);
                         break;
                     }
-                    if (number < 16 && number > 0)
-                    {
-                        Point newPoint = new Point(0, 0);
-                        for (int i = 0; i < 4; i++)
-                        {
-                            newPoint.Row = emptyPoint.Row + Directions.GetDirection(i).Row;
-                            newPoint.Col = emptyPoint.Col + Directions.GetDirection(i).Col;
-                            if (OutOfMatrixChecker.CheckIfOutOfMatrix(newPoint, matrixLength))
-                            {
-                                if (i == 3)
-                                {
-                                    Console.WriteLine("Invalid move");
-                                }
-                                continue;
-                            }
-                            if (currentMatrix[newPoint.Row, newPoint.Col] == number)
-                            {
-                                EmptyCellMover.MoveEmptyCell(emptyPoint, new Point(newPoint.Row, newPoint.Col), currentMatrix);
-                                moves++;
-                                break;
-                            }
-                            if (i == 3)
-                            {
-                                Console.WriteLine("Invalid move");
-                            }
-                        }
-                    }
-                    else
+                    if (i == 3)
                     {
                         Console.WriteLine("Invalid move");
-                        break;
                     }
-                    break;
+                }
             }
-
-            return false;
+            else
+            {
+                Console.WriteLine("Invalid move");
+            }
         }
     }
 }

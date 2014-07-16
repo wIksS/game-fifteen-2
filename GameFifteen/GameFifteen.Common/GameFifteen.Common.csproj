@@ -43,9 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
+    <Compile Include="Contracts\IConsoleReader.cs" />
     <Compile Include="Contracts\IEqualMatrixChecker.cs" />
     <Compile Include="Contracts\IMatrixGenerator.cs" />
-    <Compile Include="Contracts\IMatrixRenderer.cs" />
+    <Compile Include="Contracts\IConsoleRenderer.cs" />
     <Compile Include="EqualMatrixChecker.cs" />
     <Compile Include="Utils\Direction.cs" />
     <Compile Include="Utils\Directions.cs" />
