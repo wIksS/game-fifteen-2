@@ -7,10 +7,9 @@
 
     class ConsoleInput : IConsoleReader
     {
+        // TODO don't pass IConsoleRenderer matrixRenderer. Nothing is rendered here!
         public bool ExecuteComand(IConsoleRenderer matrixRenderer, string stringInput, ref int moves, int[,] currentMatrix, Point emptyPoint)
         {
-            GameEngine gameEngine = new GameEngine();
-
             switch (stringInput)
             {
                 case "exit":
@@ -23,10 +22,64 @@
                     GameEngine.PrinntScoreBoard();
                     break;
                 default:
-                    HandleInvalidCommand(matrixRenderer, stringInput, ref moves, currentMatrix, emptyPoint);
+                    int number = 0;
+                    if (ValidMooveCommand(ref number, stringInput))
+                    {
+                        ExecuteMooveCommand(number, ref moves, currentMatrix, emptyPoint);
+                    }
                     break;
             }
             return false;
+        }
+
+        private bool ValidMooveCommand(ref int number, string stringInput)
+        {
+            bool isNumber = int.TryParse(stringInput, out number);
+            Direction[] directions = Directions.GetDirection;
+            int directionsCount = directions.GetLength(0);
+
+            if (!isNumber)
+            {
+                Console.WriteLine("Invalid comand!");
+                return false;
+            }
+
+            if (number >= directionsCount * directionsCount && number <= 0)
+            {
+                Console.WriteLine("Invalid number");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void ExecuteMooveCommand(int number, ref int moves, int[,] currentMatrix, Point emptyPoint)
+        {
+            Direction[] directions = Directions.GetDirection;
+            int directionsCount = directions.GetLength(0);
+            int matrixLength = currentMatrix.GetLength(0);
+
+            Point newPoint = new Point(0, 0);
+            for (int i = 0; i <= directionsCount; i++)
+            {
+                if (i == 4)
+                {
+                    Console.WriteLine("Invalid move");
+                    break;
+                }
+                newPoint.Row = emptyPoint.Row + directions[i].Row;
+                newPoint.Col = emptyPoint.Col + directions[i].Col;
+                if (OutOfMatrixChecker.CheckIfOutOfMatrix(newPoint, matrixLength))
+                {
+                    continue;
+                }
+                if (currentMatrix[newPoint.Row, newPoint.Col] == number)
+                {
+                    EmptyCellMover.MoveEmptyCell(emptyPoint, new Point(newPoint.Row, newPoint.Col), currentMatrix);
+                    moves++;
+                    break;
+                }
+            }
         }
 
         // There is no need to create a method for Console.ReadLine(). The interface may be redundant
@@ -34,48 +87,6 @@
         {
             var command = Console.ReadLine();
             return command;
-        }
-
-        // This code reaks! Lots of the commands it handles are not invalid!
-        public void HandleInvalidCommand(IConsoleRenderer matrixRenderer, string inputString, ref int moves, int[,] currentMatrix, Point emptyPoint)
-        {
-            int number = 0;
-            Direction[] directions = Directions.GetDirection;
-            int directionsCount = directions.GetLength(0);
-            int matrixLength = currentMatrix.GetLength(0);
-            bool isNumber = int.TryParse(inputString, out number);
-            if (!isNumber)
-            {
-                Console.WriteLine("Invalid comand!");
-            }
-            else if (number < directionsCount * directionsCount && number > 0)
-            {
-                Point newPoint = new Point(0, 0);
-                for (int i = 0; i <= directionsCount; i++)
-                {
-                    if (i == 4)
-                    {
-                        Console.WriteLine("Invalid move");
-                        break;
-                    }
-                    newPoint.Row = emptyPoint.Row + directions[i].Row;
-                    newPoint.Col = emptyPoint.Col + directions[i].Col;
-                    if (OutOfMatrixChecker.CheckIfOutOfMatrix(newPoint, matrixLength))
-                    {
-                        continue;
-                    }
-                    if (currentMatrix[newPoint.Row, newPoint.Col] == number)
-                    {
-                        EmptyCellMover.MoveEmptyCell(emptyPoint, new Point(newPoint.Row, newPoint.Col), currentMatrix);
-                        moves++;
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid number");
-            }
         }
     }
 }
