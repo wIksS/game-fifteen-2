@@ -7,8 +7,7 @@
 
     class ConsoleInput : IConsoleReader
     {
-        // TODO don't pass IConsoleRenderer matrixRenderer. Nothing is rendered here!
-        public bool ExecuteComand(IConsoleRenderer matrixRenderer, string stringInput, ref int moves, int[,] currentMatrix, Point emptyPoint)
+        public bool ExecuteComand(string stringInput, ref int moves, int[,] currentMatrix, Point emptyPoint)
         {
             switch (stringInput)
             {

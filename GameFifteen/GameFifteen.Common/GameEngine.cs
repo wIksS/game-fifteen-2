@@ -119,7 +119,7 @@
                 Console.Write("Enter a number to move: ");
                 inputString = Console.ReadLine();
 
-                gameEnd = consoleReader.ExecuteComand(consoleRenderer, inputString, ref moves, currentMatrix, emptyPoint);
+                gameEnd = consoleReader.ExecuteComand(inputString, ref moves, currentMatrix, emptyPoint);
             }
         }
 
