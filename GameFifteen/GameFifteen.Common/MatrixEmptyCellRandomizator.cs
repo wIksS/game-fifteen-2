@@ -5,8 +5,8 @@
     class MatrixEmptyCellRandomizator
     {
         private const int INIT_POINT_POSITION = 3;
-        private const int MIN_MOOVES_RANDOM_NUMBER = 10;
-        private const int MAX_MOOVES_RANDOM_NUMBER = 20;
+        private const int MIN_MOOVES_RANDOM_NUMBER = 1;
+        private const int MAX_MOOVES_RANDOM_NUMBER = 2;
         private const int MAX_RANDOM_DIRECTION_INDEX = 3;
 
         private Point emptyPoint = new Point(INIT_POINT_POSITION, INIT_POINT_POSITION);

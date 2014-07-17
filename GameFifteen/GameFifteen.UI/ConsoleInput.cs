@@ -5,9 +5,9 @@
     using GameFifteen.Common.Contracts;
     using GameFifteen.Common.Utils;
 
-    class ConsoleInput : IConsoleReader
+    class ConsoleInput : IReader
     {
-        public bool ExecuteComand(string stringInput, ref int moves, int[,] currentMatrix, Point emptyPoint)
+        public bool ExecuteComand(string stringInput, ref int moves, int[,] currentMatrix, Point emptyPoint, Scoreboard scoreboard)
         {
             switch (stringInput)
             {
@@ -18,7 +18,8 @@
                 case "restart":
                     return true;
                 case "top":
-                    GameEngine.PrinntScoreBoard();
+                    IRenderer consoleRenderer = new ConsoleRenderer();
+                    consoleRenderer.RenderScoreboard(scoreboard);
                     break;
                 default:
                     int number = 0;
