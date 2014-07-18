@@ -9,7 +9,7 @@
     public class GameEngine
     {
         // TODO moove common constants to game settings
-        const int GAME_BOARD_SIZE = 4;
+        public const int GAME_BOARD_SIZE = 4;
         public static bool PlayAgain{get;private set;}
 		public static bool GameEnd { get; private set; }
 

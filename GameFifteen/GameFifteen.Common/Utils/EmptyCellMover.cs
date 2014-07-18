@@ -2,7 +2,7 @@
 {
     public class EmptyCellMover
     {
-        private const int INITIAL_EMPTY_CELL = 16;
+		private const int INITIAL_EMPTY_CELL = GameEngine.GAME_BOARD_SIZE * GameEngine.GAME_BOARD_SIZE;
         public static void MoveEmptyCell(Point emptyPoint, Point newPoint, int[,] matrix)
         {
             int swapValue = matrix[newPoint.Row, newPoint.Col];
