@@ -3,6 +3,7 @@
     using System;
     using GameFifteen.Common;
     using GameFifteen.Common.Contracts;
+    using System.Text;
 
     public class ConsoleRenderer : IRenderer
     {
@@ -14,61 +15,70 @@
             string firstPlaceholder = "  {0}";
             string secondPlaceholder = " {0}";
             string emptySpaces = "   ";
+            var matrixAsString = new StringBuilder();
 
-            this.PrintLine(dashes);
+            matrixAsString.AppendLine(dashes);
 
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                this.Print(wallSymbol);
+                matrixAsString.Append(wallSymbol);
                 for (int j = 0; j < matrix.GetLength(0); j++)
                 {
                     if (matrix[i, j] <= 9)
                     {
-                        this.Print(firstPlaceholder, matrix[i, j]);
+                        matrixAsString.AppendFormat(firstPlaceholder, matrix[i, j]);
                     }
                     else
                     {
                         if (matrix[i, j] == 16)
                         {
-                            this.Print(emptySpaces);
+                            matrixAsString.Append(emptySpaces);
                         }
                         else
                         {
-                            this.Print(secondPlaceholder, matrix[i, j]);
+                            matrixAsString.AppendFormat(secondPlaceholder, matrix[i, j]);
                         }
                     }
 
                     if (j == matrix.GetLength(0) - 1)
                     {
-                        this.Print(wallSymbol, newLine);
+                        matrixAsString.AppendFormat(wallSymbol, newLine);
                     }
                 }
+
+                matrixAsString.AppendLine();
             }
 
-            this.PrintLine(dashes);
+            matrixAsString.AppendLine(dashes);
+
+            this.Print(matrixAsString.ToString());
         }
 
         public void RenderScoreboard(Scoreboard scoreboard)
         {
             string emptyScoreboardMessage = "Scoreboard is empty";
-            string scoreBoard = "Scoreboard:";
-            string scoreResult = "{0}. {1} --> {2} moves";
-
             var players = scoreboard.GetPlayers();
+
             if (players.Count == 0)
             {
                 this.PrintLine(emptyScoreboardMessage);
                 return;
             }
 
+            string scoreBoard = "Scoreboard:";
             this.PrintLine(scoreBoard);
+
+            var scoreBoardAsString = new StringBuilder();
+            string scoreResult = "{0}. {1} --> {2} moves";
 
             for (int i = 0; i < players.Count; i++)
             {
-                this.PrintLine(scoreResult, i + 1, players[i].Name, players[i].MovesCount);
+                scoreBoardAsString.AppendFormat(scoreResult, i + 1, players[i].Name, players[i].MovesCount);
+                scoreBoardAsString.AppendLine();
             }
 
-            Console.WriteLine();
+            scoreBoardAsString.AppendLine();
+            this.Print(scoreBoardAsString.ToString());
         }
 
         public void PrintWelcome()
@@ -95,16 +105,6 @@
             Console.Write(message);
         }
 
-        private void Print(string message, int parameter)
-        {
-            Console.Write(message, parameter);
-        }
-
-        private void Print(string symbol, string newLine)
-        {
-            Console.Write(symbol + newLine);
-        }
-
         private void PrintLine(string message)
         {
             Console.WriteLine(message);
@@ -113,11 +113,6 @@
         private void PrintLine(string message, int parameter)
         {
             Console.WriteLine(message, parameter);
-        }
-
-        private void PrintLine(string scoreResult, int i, string name, int movesCount)
-        {
-            Console.WriteLine(scoreResult, i, name, movesCount);
         }
     }
 }
