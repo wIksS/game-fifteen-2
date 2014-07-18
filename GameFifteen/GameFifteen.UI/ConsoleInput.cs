@@ -13,7 +13,6 @@
             {
                 case "exit":
                     Console.WriteLine("Good bye!");
-					GameEngine.Restart();
 					GameEngine.Exit();
 					break;
                 case "restart":

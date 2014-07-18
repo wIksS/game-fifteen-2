@@ -26,6 +26,7 @@
 		public static void Exit()
 		{
 			PlayAgain = false;
+			Restart();
 		}
 
 		public void StartNewGame(IRenderer consoleRenderer, IReader consoleReader, Scoreboard scoreboard)
