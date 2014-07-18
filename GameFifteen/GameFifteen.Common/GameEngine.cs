@@ -10,24 +10,40 @@
     {
         // TODO moove common constants to game settings
         const int GAME_BOARD_SIZE = 4;
-        public static bool PlayAgain = true;
+        public static bool PlayAgain{get;private set;}
+		public static bool GameEnd { get; private set; }
 
-        public void StartNewGame(IRenderer consoleRenderer, IReader consoleReader, Scoreboard scoreboard)
-        {
+		public GameEngine()
+		{
+			PlayAgain = true;
+		}
+
+		public static void Restart()
+		{
+			GameEnd = true;
+		}
+
+		public static void Exit()
+		{
+			PlayAgain = false;
+		}
+
+		public void StartNewGame(IRenderer consoleRenderer, IReader consoleReader, Scoreboard scoreboard)
+		{
             MatrixGenerator matrixGenerator = new MatrixGenerator(GAME_BOARD_SIZE);
             int[,] currentMatrix = matrixGenerator.GenerateMatrix();
             int matrixLength = currentMatrix.GetLength(0);
             IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(new MatrixGenerator(matrixLength));
             MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
             Point emptyPoint = matrixRandomizator.Randomize(currentMatrix);
-            bool gameEnd = false;
 
             consoleRenderer.PrintWelcome();
 
             // main algorithm
             int playerMoves = 0;
+			GameEnd = false;
             string inputString = "";
-            while (!gameEnd)
+            while (!GameEnd)
             {
                 consoleRenderer.RenderMatrix(currentMatrix);
                 if (equalMatrixChecker.IsSorted(currentMatrix))  // IsGameWon check
@@ -44,7 +60,7 @@
                 Console.Write("Enter a number to move: ");
                 inputString = Console.ReadLine();
 
-                gameEnd = consoleReader.ExecuteComand(inputString, ref playerMoves, currentMatrix, emptyPoint,scoreboard);
+                consoleReader.ExecuteComand(inputString, ref playerMoves, currentMatrix, emptyPoint,scoreboard);
             }
         }
 

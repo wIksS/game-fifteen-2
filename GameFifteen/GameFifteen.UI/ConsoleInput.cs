@@ -7,16 +7,18 @@
 
     class ConsoleInput : IReader
     {
-        public bool ExecuteComand(string stringInput, ref int moves, int[,] currentMatrix, Point emptyPoint, Scoreboard scoreboard)
+        public void ExecuteComand(string stringInput, ref int moves, int[,] currentMatrix, Point emptyPoint, Scoreboard scoreboard)
         {
             switch (stringInput)
             {
                 case "exit":
-                    GameEngine.PlayAgain = false;
                     Console.WriteLine("Good bye!");
-                    return true;
+					GameEngine.Restart();
+					GameEngine.Exit();
+					break;
                 case "restart":
-                    return true;
+                    GameEngine.Restart();
+					break;
                 case "top":
                     IRenderer consoleRenderer = new ConsoleRenderer();
                     consoleRenderer.RenderScoreboard(scoreboard);
@@ -29,7 +31,6 @@
                     }
                     break;
             }
-            return false;
         }
 
         private bool ValidMooveCommand(ref int number, string stringInput)

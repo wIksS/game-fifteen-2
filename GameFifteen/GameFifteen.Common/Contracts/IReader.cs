@@ -2,7 +2,7 @@
 {
     public interface IReader
     {
-        bool ExecuteComand(string stringInput, ref int moves, int[,] currentMatrix, Point emptyPoint, Scoreboard scoreboard);
+        void ExecuteComand(string stringInput, ref int moves, int[,] currentMatrix, Point emptyPoint, Scoreboard scoreboard);
 
         string Read();
     }
