@@ -5,8 +5,8 @@
 	class MatrixEmptyCellRandomizator
 	{
 		private const int INIT_POINT_POSITION = GameEngine.GAME_BOARD_SIZE - 1;
-		private const int MIN_MOOVES_RANDOM_NUMBER = 1;
-		private const int MAX_MOOVES_RANDOM_NUMBER = 2;
+		private const int MIN_MOOVES_RANDOM_NUMBER = 10;
+		private const int MAX_MOOVES_RANDOM_NUMBER = 20;
 		private readonly int MAX_RANDOM_DIRECTION_INDEX = Directions.GetDirection.GetLength(0) - 1;
 
 		private Point emptyPoint = new Point(INIT_POINT_POSITION, INIT_POINT_POSITION);
@@ -17,7 +17,7 @@
 			for (int i = 0; i < randomizeMoves; i++)
 			{
 				int randomDirection = RandomUtils.GetRandomNumber(MAX_RANDOM_DIRECTION_INDEX);
-				Direction direction = Directions.GetDirection[randomDirection];
+				Point direction = Directions.GetDirection[randomDirection];
 				Point newEmptyPoint = new Point(emptyPoint.Row + direction.Row, emptyPoint.Col + direction.Col);
 
 				if (OutOfMatrixChecker.CheckIfOutOfMatrix(newEmptyPoint, matrix.GetLength(0)))

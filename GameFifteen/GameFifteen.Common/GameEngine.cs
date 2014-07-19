@@ -67,7 +67,7 @@
 
         public static void ExecuteMooveCommand(int number, ref int moves, int[,] currentMatrix, Point emptyPoint)
         {
-            Direction[] directions = Directions.GetDirection;
+            Point[] directions = Directions.GetDirection;
             int directionsCount = directions.GetLength(0);
             int matrixLength = currentMatrix.GetLength(0);
 

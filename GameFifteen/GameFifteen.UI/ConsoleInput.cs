@@ -35,7 +35,7 @@
         private bool ValidMooveCommand(ref int number, string stringInput)
         {
             bool isNumber = int.TryParse(stringInput, out number);
-            Direction[] directions = Directions.GetDirection;
+            Point[] directions = Directions.GetDirection;
             int directionsCount = directions.GetLength(0);
 
             if (!isNumber)

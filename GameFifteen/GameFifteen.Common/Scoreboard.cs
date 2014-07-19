@@ -49,10 +49,12 @@ namespace GameFifteen.Common
 
         private List<Player> SortPlayers()
         {
-            return this.players
+            List<Player> sortedPlayers = this.players
                 .OrderBy(student => student.MovesCount)
                 .ThenBy(student => student.Name)
                 .ToList();
+
+            return sortedPlayers;
         }
     }
 }
