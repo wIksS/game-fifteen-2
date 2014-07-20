@@ -47,7 +47,11 @@
     <Compile Include="Contracts\IEqualMatrixChecker.cs" />
     <Compile Include="Contracts\IMatrixGenerator.cs" />
     <Compile Include="Contracts\IRenderer.cs" />
+    <Compile Include="DefaultCommand.cs" />
     <Compile Include="EqualMatrixChecker.cs" />
+    <Compile Include="ExitCommand.cs" />
+    <Compile Include="RestartCommand.cs" />
+    <Compile Include="ShowScoreboardCommand.cs" />
     <Compile Include="Utils\Directions.cs" />
     <Compile Include="Utils\OutOfMatrixChecker.cs" />
     <Compile Include="Utils\EmptyCellMover.cs" />

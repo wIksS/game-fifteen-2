@@ -8,7 +8,7 @@
         static void Main(string[] args)
         {
             IRenderer renderer = new ConsoleRenderer();
-            IReader inputReader = new ConsoleInput();
+            IReader inputReader = new ConsoleReader();
             GameEngine gameEngine = new GameEngine();
             Scoreboard scoreboard = new Scoreboard();
 

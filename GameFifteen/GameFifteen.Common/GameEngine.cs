@@ -18,12 +18,12 @@
 			PlayAgain = true;
 		}
 
-		public static void Restart()
+		public void Restart()
 		{
 			GameEnd = true;
 		}
 
-		public static void Exit()
+		public void Exit()
 		{
 			PlayAgain = false;
 			Restart();
@@ -37,6 +37,7 @@
             IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(new MatrixGenerator(matrixLength));
             MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
             Point emptyPoint = matrixRandomizator.Randomize(currentMatrix);
+            Command currentCommand;
 
             consoleRenderer.PrintWelcome();
 
@@ -59,39 +60,34 @@
                 }
 
                 Console.Write("Enter a number to move: ");
-                inputString = Console.ReadLine();
+                inputString = consoleReader.Read();
 
-                consoleReader.ExecuteComand(inputString, ref playerMoves, currentMatrix, emptyPoint,scoreboard);
+                switch (inputString)
+                {
+                    case "exit":
+                        Console.WriteLine("Good bye!");
+                        currentCommand = new ExitCommand(this);
+                        currentCommand.Execute();
+                        break;
+                    case "restart":
+                        currentCommand = new RestartCommand(this);
+                        currentCommand.Execute();
+                        break;
+                    case "top":
+                        currentCommand = new ShowScoreboardCommand(consoleRenderer, scoreboard);
+                        currentCommand.Execute();
+                        break;
+                    default:
+                        currentCommand = new DefaultCommand(currentMatrix,consoleRenderer,emptyPoint,inputString);
+                        currentCommand.Execute();
+                        if ((currentCommand as DefaultCommand).IsPlayerMoved)
+                        {
+                            playerMoves++;
+                        }
+                        break;
+                }
+
             }
-        }
-
-        public static void ExecuteMooveCommand(int number, ref int moves, int[,] currentMatrix, Point emptyPoint)
-        {
-            Point[] directions = Directions.GetDirection;
-            int directionsCount = directions.GetLength(0);
-            int matrixLength = currentMatrix.GetLength(0);
-
-            Point newPoint = new Point(0, 0);
-            for (int i = 0; i <= directionsCount; i++)
-            {
-                if (i == 4)
-                {
-                    Console.WriteLine("Invalid move");
-                    break;
-                }
-                newPoint.Row = emptyPoint.Row + directions[i].Row;
-                newPoint.Col = emptyPoint.Col + directions[i].Col;
-                if (OutOfMatrixChecker.CheckIfOutOfMatrix(newPoint, matrixLength))
-                {
-                    continue;
-                }
-                if (currentMatrix[newPoint.Row, newPoint.Col] == number)
-                {
-                    EmptyCellMover.MoveEmptyCell(emptyPoint, new Point(newPoint.Row, newPoint.Col), currentMatrix);
-                    moves++;
-                    break;
-                }
-            }
-        }
+        }     
     }
 }

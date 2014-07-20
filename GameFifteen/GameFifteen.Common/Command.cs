@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace GameFifteen.Common
 {
-    class Command
+    internal abstract class Command
     {
+        public abstract void Execute(); 
     }
 }
