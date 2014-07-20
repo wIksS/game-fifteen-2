@@ -10,22 +10,28 @@
     {
         // TODO moove common constants to game settings
         public const int GAME_BOARD_SIZE = 4;
-        public static bool PlayAgain{get;private set;}
-		public static bool GameEnd { get; private set; }
+        private bool isGameOver;
+        private bool gameEnd;
+
+        public bool IsGameOver
+        {
+            get { return this.isGameOver; }
+            private set { this.isGameOver = value; }
+        }
 
 		public GameEngine()
 		{
-			PlayAgain = true;
+			isGameOver = true;
 		}
 
 		public void Restart()
 		{
-			GameEnd = true;
+			gameEnd = true;
 		}
 
 		public void Exit()
 		{
-			PlayAgain = false;
+			isGameOver = false;
 			Restart();
 		}
 
@@ -43,9 +49,9 @@
 
             // main algorithm
             int playerMoves = 0;
-			GameEnd = false;
+			gameEnd = false;
             string inputString = "";
-            while (!GameEnd)
+            while (!gameEnd)
             {
                 consoleRenderer.RenderMatrix(currentMatrix);
                 if (equalMatrixChecker.IsSorted(currentMatrix))  // IsGameWon check

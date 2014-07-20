@@ -51,9 +51,9 @@ namespace GameFifteen.Common
             Point newPoint = new Point(0, 0);
             for (int i = 0; i <= directionsCount; i++)
             {
-                if (i == 4)
+                if (i == matrix.GetLength(0))
                 {
-                    Console.WriteLine("Invalid move");
+                    renderer.PrintInvalid("move");
                     break;
                 }
                 newPoint.Row = emptyPoint.Row + directions[i].Row;
@@ -79,13 +79,13 @@ namespace GameFifteen.Common
 
             if (!isNumber)
             {
-                Console.WriteLine("Invalid comand!");
+                renderer.PrintInvalid("command");
                 return false;
             }
 
             if (number >= directionsCount * directionsCount && number <= 0)
             {
-                Console.WriteLine("Invalid number");
+                renderer.PrintInvalid("number");
                 return false;
             }
 

@@ -16,7 +16,7 @@
             {
                 gameEngine.StartNewGame(renderer, inputReader,scoreboard);
             }
-            while (GameEngine.PlayAgain);
+            while (gameEngine.IsGameOver);
         }
     }
 }

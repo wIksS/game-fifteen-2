@@ -114,5 +114,11 @@
         {
             Console.WriteLine(message, parameter);
         }
+
+
+        public void PrintInvalid(string invalidType)
+        {
+            Console.WriteLine("Invalid {0}",invalidType);
+        }
     }
 }

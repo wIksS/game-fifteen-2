@@ -11,5 +11,7 @@
         void PrintGameWon(int moves);
 
         void AskPlayerForName();
+
+        void PrintInvalid(string invalidType);
     }
 }
