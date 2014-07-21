@@ -10,10 +10,6 @@
 
         void PrintGameWon(int moves);
 
-        //void AskPlayerForName();
-
-        //void PrintInvalid(string invalidType);
-
 		void PrintLine(string message);
 
 		void Print(string message);

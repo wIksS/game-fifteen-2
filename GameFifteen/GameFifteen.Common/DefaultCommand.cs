@@ -74,8 +74,7 @@ namespace GameFifteen.Common
         private bool ValidMooveCommand(ref int number, string stringInput)
         {
             bool isNumber = int.TryParse(stringInput, out number);
-            Point[] directions = Directions.GetDirection;
-            int directionsCount = directions.GetLength(0);
+			int lastNumber = GameEngine.GAME_BOARD_SIZE * GameEngine.GAME_BOARD_SIZE;
 
             if (!isNumber)
             {
@@ -83,7 +82,7 @@ namespace GameFifteen.Common
                 return false;
             }
 
-            if (number >= directionsCount * directionsCount && number <= 0)
+            if (number >= lastNumber || number <= 0)
             {
 				renderer.PrintLine("Invalid number");
                 return false;
