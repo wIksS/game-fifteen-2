@@ -60,10 +60,14 @@
 
 					consoleRenderer.Print("Please enter your name for the top scoreboard: ");
 					string playerName = "";
-					while (string.IsNullOrEmpty(playerName))
+					while (true)
 					{
-						consoleRenderer.PrintLine("Please enter a non empty name: ");
 						playerName = consoleReader.Read();
+						if (!string.IsNullOrEmpty(playerName))
+						{
+							break;
+						}
+						consoleRenderer.Print("Please enter a non empty name: ");
 					}
 
 					Player currentPlayer = new Player(playerName, playerMoves);
