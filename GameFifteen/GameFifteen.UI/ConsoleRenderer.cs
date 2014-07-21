@@ -90,35 +90,23 @@
 
         public void PrintGameWon(int moves)
         {
-            string congratulationsMessage = "Congratulations! You won the game in {0} moves.";
-            this.PrintLine(congratulationsMessage, moves);
+			string congratulationsMessage = string.Format("Congratulations! You won the game in {0} moves.", moves);
+            this.PrintLine(congratulationsMessage);
         }
 
-        public void AskPlayerForName()
-        {
-            string questionForThePlayerName = "Please enter your name for the top scoreboard: ";
-            this.PrintLine(questionForThePlayerName);
-        }
+		public void PrintLine(string mesage)
+		{
+			ConsoleRender(mesage + "\n");
+		}
 
-        private void Print(string message)
-        {
-            Console.Write(message);
-        }
+		public void Print(string mesage)
+		{
+			ConsoleRender(mesage);
+		}
 
-        private void PrintLine(string message)
-        {
-            Console.WriteLine(message);
-        }
-
-        private void PrintLine(string message, int parameter)
-        {
-            Console.WriteLine(message, parameter);
-        }
-
-
-        public void PrintInvalid(string invalidType)
-        {
-            Console.WriteLine("Invalid {0}",invalidType);
-        }
+		private void ConsoleRender(string output)
+		{
+			Console.Write(output);
+		}
     }
 }

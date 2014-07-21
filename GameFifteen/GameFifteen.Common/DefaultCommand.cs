@@ -53,7 +53,7 @@ namespace GameFifteen.Common
             {
                 if (i == matrix.GetLength(0))
                 {
-                    renderer.PrintInvalid("move");
+					renderer.PrintLine("Invalid move");
                     break;
                 }
                 newPoint.Row = emptyPoint.Row + directions[i].Row;
@@ -79,13 +79,13 @@ namespace GameFifteen.Common
 
             if (!isNumber)
             {
-                renderer.PrintInvalid("command");
+				renderer.PrintLine("Invalid command");
                 return false;
             }
 
             if (number >= directionsCount * directionsCount && number <= 0)
             {
-                renderer.PrintInvalid("number");
+				renderer.PrintLine("Invalid number");
                 return false;
             }
 

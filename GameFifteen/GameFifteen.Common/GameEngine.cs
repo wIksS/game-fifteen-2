@@ -57,7 +57,7 @@
                 if (equalMatrixChecker.IsSorted(currentMatrix))  // IsGameWon check
                 {
                     consoleRenderer.PrintGameWon(playerMoves);
-                    consoleRenderer.AskPlayerForName();
+					consoleRenderer.Print("Please enter your name for the top scoreboard: ");
                     string playerName = consoleReader.Read();
                     Player currentPlayer = new Player(playerName, playerMoves);
                     scoreboard.AddPlayer(currentPlayer);
@@ -65,13 +65,13 @@
                     return;
                 }
 
-                Console.Write("Enter a number to move: ");
+				consoleRenderer.Print("Enter a number to move: ");
                 inputString = consoleReader.Read();
 
                 switch (inputString)
                 {
                     case "exit":
-                        Console.WriteLine("Good bye!");
+						consoleRenderer.PrintLine("Good bye!");
                         currentCommand = new ExitCommand(this);
                         currentCommand.Execute();
                         break;
