@@ -18,10 +18,11 @@ namespace GameFifteen.Common
 
         public List<Player> GetPlayers()
         {
-            if (this.players.Count == 0)
+			//there is a condition in ConsoleRenderer
+            /*if (this.players.Count == 0)
             {
-                throw new ArgumentException("Players must be added to the scoreboard before getting it.");
-            }
+                throw new ArgumentNullException("Players must be added to the scoreboard before getting it.");
+            }*/
 
             return this.players;
         }
