@@ -52,6 +52,7 @@
     <Compile Include="ExitCommand.cs" />
     <Compile Include="RestartCommand.cs" />
     <Compile Include="ShowScoreboardCommand.cs" />
+    <Compile Include="Utils\CommonConstants.cs" />
     <Compile Include="Utils\Directions.cs" />
     <Compile Include="Utils\OutOfMatrixChecker.cs" />
     <Compile Include="Utils\EmptyCellMover.cs" />

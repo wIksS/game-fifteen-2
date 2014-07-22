@@ -4,6 +4,7 @@
     using GameFifteen.Common;
     using GameFifteen.Common.Contracts;
     using System.Text;
+    using GameFifteen.Common.Utils;
 
     public class ConsoleRenderer : IRenderer
     {
@@ -56,24 +57,21 @@
 
         public void RenderScoreboard(Scoreboard scoreboard)
         {
-            string emptyScoreboardMessage = "Scoreboard is empty";
             var players = scoreboard.GetPlayers();
 
             if (players.Count == 0)
             {
-                this.PrintLine(emptyScoreboardMessage);
+                this.PrintLine(UIConstants.EMPTY_SCOREBOARD_MESSAGE);
                 return;
             }
 
-            string scoreBoard = "Scoreboard:";
-            this.PrintLine(scoreBoard);
+            this.PrintLine(UIConstants.SCOREBOARD);
 
             var scoreBoardAsString = new StringBuilder();
-            string scoreResult = "{0}. {1} --> {2} moves";
 
             for (int i = 0; i < players.Count; i++)
             {
-                scoreBoardAsString.AppendFormat(scoreResult, i + 1, players[i].Name, players[i].MovesCount);
+                scoreBoardAsString.AppendFormat(UIConstants.SCORE_RESULT_FORMAT, i + 1, players[i].Name, players[i].MovesCount);
                 scoreBoardAsString.AppendLine();
             }
 
@@ -83,20 +81,18 @@
 
         public void PrintWelcome()
         {
-            string welcomeMessage = "Welcome to the game “15”. Please try to arrange the numbers sequentially.\n" +
-                                    "Use 'top' to view the top scoreboard, 'restart' to start a new game and \n'exit' to quit the game.";
-            this.PrintLine(welcomeMessage);
+            this.PrintLine(UIConstants.WELCOME_MESSAGE);
         }
 
         public void PrintGameWon(int moves)
         {
-			string congratulationsMessage = string.Format("Congratulations! You won the game in {0} moves.", moves);
+            string congratulationsMessage = string.Format(UIConstants.CONGRATULATIONS_MESSAGE, moves);
             this.PrintLine(congratulationsMessage);
         }
 
 		public void PrintLine(string mesage)
 		{
-			ConsoleRender(mesage + "\n");
+            ConsoleRender(mesage + UIConstants.NEW_LINE);
 		}
 
 		public void Print(string mesage)

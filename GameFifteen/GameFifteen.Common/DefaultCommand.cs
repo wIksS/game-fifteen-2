@@ -53,7 +53,7 @@ namespace GameFifteen.Common
             {
                 if (i == matrix.GetLength(0))
                 {
-					renderer.PrintLine("Invalid move");
+                    renderer.PrintLine(CommonConstants.INVALID_MOVE);
                     break;
                 }
                 newPoint.Row = emptyPoint.Row + directions[i].Row;
@@ -74,17 +74,17 @@ namespace GameFifteen.Common
         private bool ValidMooveCommand(ref int number, string stringInput)
         {
             bool isNumber = int.TryParse(stringInput, out number);
-			int lastNumber = GameEngine.GAME_BOARD_SIZE * GameEngine.GAME_BOARD_SIZE;
+            int lastNumber = CommonConstants.GAME_BOARD_SIZE * CommonConstants.GAME_BOARD_SIZE;
 
             if (!isNumber)
             {
-				renderer.PrintLine("Invalid command");
+                renderer.PrintLine(CommonConstants.INVALID_COMMAND);
                 return false;
             }
 
             if (number >= lastNumber || number <= 0)
             {
-				renderer.PrintLine("Invalid number");
+                renderer.PrintLine(CommonConstants.INVALID_NUMBER);
                 return false;
             }
 

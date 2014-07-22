@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameFifteen.Common.Utils;
 
 namespace GameFifteen.Common
 {
@@ -24,7 +25,7 @@ namespace GameFifteen.Common
             {
                 if (value == null || value == String.Empty)
                 {
-                    throw new ArgumentException("Name must be a non - empty string.");
+                    throw new ArgumentException(CommonConstants.INVALID_PLAYER_NAME);
                 }
 
                 this.name = value;
@@ -38,7 +39,7 @@ namespace GameFifteen.Common
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException("Moves cannot be negative.");
+                    throw new ArgumentOutOfRangeException(CommonConstants.NEGATIVE_MOVE);
                 }
 
                 this.movesCount = value;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameFifteen.Common.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,6 @@ namespace GameFifteen.Common
 {
     public class Scoreboard
     {
-        private const int MAX_PLAYERS_IN_SCOREBOARD = 5;
         private List<Player> players;
 
         public Scoreboard()
@@ -31,13 +31,13 @@ namespace GameFifteen.Common
         {
             if (player == null)
             {
-                throw new ArgumentException("Player cannot be null.");                
+                throw new ArgumentException(CommonConstants.INVALID_PLAYER);                
             }
 
             this.players.Add(player);
             this.players = SortPlayers();
 
-            if (this.players.Count > 5)
+            if (this.players.Count > CommonConstants.MAX_PLAYERS_IN_SCOREBOARD)
             {
                 DeleteLastPlayer();
             }

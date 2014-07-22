@@ -1,11 +1,10 @@
 ﻿namespace GameFifteen.Common
 {
     using GameFifteen.Common.Contracts;
+    using GameFifteen.Common.Utils;
 
     public class MatrixGenerator : IMatrixGenerator
     {
-        private const int INITIAL_MATRIX_NUMBER = 1;
-
         private int[,] gameMatrix;
         private int matrixLength;
 
@@ -17,7 +16,7 @@
 
         public int[,] GenerateMatrix()
         {
-            int tempMatrixValue = INITIAL_MATRIX_NUMBER;
+            int tempMatrixValue = CommonConstants.INITIAL_MATRIX_NUMBER;
 
             for (int i = 0; i < this.matrixLength; i++)
             {
