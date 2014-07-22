@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFifteen.UI", "GameFifte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFifteen.Common.Tests", "GameFifteen.CommonTests\GameFifteen.Common.Tests.csproj", "{D31E2551-6F4E-4339-9711-7E020262D5B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFifteen.UI.Tests", "GameFifteen.UI.Tests\GameFifteen.UI.Tests.csproj", "{F1CAACD6-8DD1-49B7-8709-9D8425E2DB6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D31E2551-6F4E-4339-9711-7E020262D5B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D31E2551-6F4E-4339-9711-7E020262D5B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D31E2551-6F4E-4339-9711-7E020262D5B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1CAACD6-8DD1-49B7-8709-9D8425E2DB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1CAACD6-8DD1-49B7-8709-9D8425E2DB6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1CAACD6-8DD1-49B7-8709-9D8425E2DB6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1CAACD6-8DD1-49B7-8709-9D8425E2DB6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
