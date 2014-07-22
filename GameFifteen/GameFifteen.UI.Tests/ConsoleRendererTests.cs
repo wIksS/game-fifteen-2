@@ -15,10 +15,10 @@
         {
             var currentConsoleOut = Console.Out;
             string expected = "Welcome to the game “15”. Please try to arrange the numbers sequentially.\n" +
-                                    "Use 'top' to view the top scoreboard, 'restart' to start a new game and \n'exit' to quit the game.";
+                                    "Use 'top' to view the top scoreboard, 'restart' to start a new game and \n'exit' to quit the game.\n";
             using (var consoleOutput = new ConsoleOutput())
             {
-                render.Print(expected);
+                render.PrintWelcome();
                 Assert.AreEqual(expected, consoleOutput.GetOuput());
             }
 
