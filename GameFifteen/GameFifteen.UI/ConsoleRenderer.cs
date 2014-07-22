@@ -10,40 +10,35 @@
     {
         public void RenderMatrix(int[,] matrix)
         {
-            string dashes = ' ' + new string('-', 12);
-            string wallSymbol = "|";
-            string newLine = "\n";
-            string firstPlaceholder = "  {0}";
-            string secondPlaceholder = " {0}";
-            string emptySpaces = "   ";
+            string dashes = UIConstants.SPACE + new string(UIConstants.DASH, 12);
             var matrixAsString = new StringBuilder();
 
             matrixAsString.AppendLine(dashes);
 
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                matrixAsString.Append(wallSymbol);
+                matrixAsString.Append(UIConstants.WALL_SYMBOL);
                 for (int j = 0; j < matrix.GetLength(0); j++)
                 {
                     if (matrix[i, j] <= 9)
                     {
-                        matrixAsString.AppendFormat(firstPlaceholder, matrix[i, j]);
+                        matrixAsString.AppendFormat(UIConstants.FIRST_PLACEHOLDER, matrix[i, j]);
                     }
                     else
                     {
                         if (matrix[i, j] == 16)
                         {
-                            matrixAsString.Append(emptySpaces);
+                            matrixAsString.Append(UIConstants.EMPTY_SPACES);
                         }
                         else
                         {
-                            matrixAsString.AppendFormat(secondPlaceholder, matrix[i, j]);
+                            matrixAsString.AppendFormat(UIConstants.SECOND_PLACEHOLDER, matrix[i, j]);
                         }
                     }
 
                     if (j == matrix.GetLength(0) - 1)
                     {
-                        matrixAsString.AppendFormat(wallSymbol, newLine);
+                        matrixAsString.AppendFormat(UIConstants.WALL_SYMBOL, UIConstants.NEW_LINE);
                     }
                 }
 
