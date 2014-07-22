@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GameFifteen.Common.Utils;
-using GameFifteen.Common.Contracts;
-
-namespace GameFifteen.Common
+﻿namespace GameFifteen.Common
 {
+    using GameFifteen.Common.Utils;
+    using GameFifteen.Common.Contracts;
+
     class DefaultCommand : Command
     {
         private IRenderer renderer;

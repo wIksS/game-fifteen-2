@@ -1,8 +1,5 @@
 ﻿namespace GameFifteen.Common
 {
-    using System;
-    using System.Linq;
-    using Wintellect.PowerCollections;
     using GameFifteen.Common.Contracts;
     using GameFifteen.Common.Utils;
 

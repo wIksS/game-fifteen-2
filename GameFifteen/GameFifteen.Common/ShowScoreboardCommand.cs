@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GameFifteen.Common.Contracts;
-
-namespace GameFifteen.Common
+﻿namespace GameFifteen.Common
 {
+    using GameFifteen.Common.Contracts;
+
     class ShowScoreboardCommand: Command
     {
         private IRenderer renderer;

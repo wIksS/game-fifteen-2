@@ -1,6 +1,7 @@
-﻿using GameFifteen.Common.Utils;
-namespace GameFifteen.Common
+﻿namespace GameFifteen.Common
 {
+    using GameFifteen.Common.Utils;
+
     public class EmptyCellMover
     {
         public static void MoveEmptyCell(Point emptyPoint, Point newPoint, int[,] matrix)

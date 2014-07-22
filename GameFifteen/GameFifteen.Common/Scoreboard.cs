@@ -1,12 +1,10 @@
-﻿using GameFifteen.Common.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GameFifteen.Common
+﻿namespace GameFifteen.Common
 {
+    using GameFifteen.Common.Utils;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Scoreboard
     {
         private List<Player> players;
