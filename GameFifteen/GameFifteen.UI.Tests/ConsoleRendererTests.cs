@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Text;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using GameFifteen.Common;
   
 
     [TestClass()]
@@ -26,7 +27,7 @@
         }
 
 
-        /*[TestMethod()]
+        [TestMethod()]
         public void PrintScoreboardTest()
         {
             var currentConsoleOut = Console.Out;
@@ -37,17 +38,18 @@
             scoreboard.AddPlayer(player);
 
             var expected = new StringBuilder();
-            expected.AppendLine("Scoreboard:");
-            expected.AppendLine("1. Goshko --> 2 moves");
+            expected.AppendLine("Scoreboard:\n1. Goshko --> 2 moves");
+            //expected.AppendLine("1. Goshko --> 2 moves");
             expected.AppendLine();
 
             using (var consoleOutput = new ConsoleOutput())
             {
                 render.RenderScoreboard(scoreboard);
+                string something = consoleOutput.GetOuput();
                 Assert.AreEqual(expected.ToString(), consoleOutput.GetOuput());
             }
 
             Assert.AreEqual(currentConsoleOut, Console.Out);
-        }*/
+        }
     }
 }
