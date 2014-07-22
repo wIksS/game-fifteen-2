@@ -10,5 +10,21 @@
         {
             Assert.Fail();
         }
+        [TestMethod()]
+        public void TestMatrixWithZeroLength()
+        {
+            var testMatrix = new MatrixGenerator(0);
+        }
+        [TestMethod()]
+        public void TestMatrixWithOneHundredLength()
+        {
+            var testMatrix = new MatrixGenerator(100);
+        }
+
+        [TestMethod()]
+        public void TestMatrixWithNegativeLength()
+        {
+            var testMatrix = new MatrixGenerator(-3);
+        }
     }
 }
