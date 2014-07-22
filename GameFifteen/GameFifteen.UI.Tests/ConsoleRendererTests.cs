@@ -45,7 +45,6 @@
             using (var consoleOutput = new ConsoleOutput())
             {
                 render.RenderScoreboard(scoreboard);
-                string something = consoleOutput.GetOuput();
                 Assert.AreEqual(expected.ToString(), consoleOutput.GetOuput());
             }
 
