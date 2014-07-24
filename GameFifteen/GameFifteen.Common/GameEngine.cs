@@ -35,8 +35,8 @@
 		{
 			MatrixGenerator matrixGenerator = new MatrixGenerator(CommonConstants.GAME_BOARD_SIZE,numberGenerator);
 			int[,] currentMatrix = matrixGenerator.GenerateMatrix();
-			int matrixLength = currentMatrix.GetLength(0);
-			IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(new MatrixGenerator(matrixLength,numberGenerator));
+			//int matrixLength = currentMatrix.GetLength(0);
+			IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker();
 			MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
 			Point emptyPoint = matrixRandomizator.Randomize(currentMatrix);
 			Command currentCommand;
