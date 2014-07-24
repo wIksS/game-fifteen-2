@@ -41,11 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleInput.cs" />
-    <Compile Include="ConsoleRenderer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UIConstants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

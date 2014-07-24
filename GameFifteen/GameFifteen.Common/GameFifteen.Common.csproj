@@ -54,6 +54,9 @@
     <Compile Include="NumberGenerator.cs" />
     <Compile Include="RestartCommand.cs" />
     <Compile Include="ShowScoreboardCommand.cs" />
+    <Compile Include="UI\ConsoleInput.cs" />
+    <Compile Include="UI\ConsoleRenderer.cs" />
+    <Compile Include="UI\UIConstants.cs" />
     <Compile Include="Utils\CommonConstants.cs" />
     <Compile Include="Utils\Directions.cs" />
     <Compile Include="Utils\OutOfMatrixChecker.cs" />

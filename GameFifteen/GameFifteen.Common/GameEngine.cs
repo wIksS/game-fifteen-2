@@ -1,104 +1,115 @@
 ﻿namespace GameFifteen.Common
 {
-	using GameFifteen.Common.Contracts;
-	using GameFifteen.Common.Utils;
+    using GameFifteen.Common.Contracts;
+    using GameFifteen.Common.Utils;
+    using GameFifteen.UI;
 
-	public class GameEngine
-	{
-		private bool isGameOver;
-		private bool gameEnd;
+    public class GameEngine
+    {
+        private bool isGameOver;
+        private bool gameEnd;
 
-		public bool IsGameOver
-		{
-			get { return this.isGameOver; }
-			private set { this.isGameOver = value; }
-		}
+        private IRenderer renderer;
+        private IReader inputReader;
+        private Scoreboard scoreboard;
+        private INumberGenerator numberGenerator;
 
-		public GameEngine()
-		{
-			isGameOver = true;
-		}
+        public bool IsGameOver
+        {
+            get { return this.isGameOver; }
+            private set { this.isGameOver = value; }
+        }
 
-		public void Restart()
-		{
-			gameEnd = true;
-		}
+        public GameEngine()
+        {
+            isGameOver = true;
 
-		public void Exit(IRenderer consoleRenderer)
-		{
-			consoleRenderer.PrintLine(CommonConstants.GOODBYE);
-			isGameOver = false;
-			Restart();
-		}
+            renderer = new ConsoleRenderer();
+            inputReader = new ConsoleReader();
+            scoreboard = new Scoreboard();
+            numberGenerator = new NumberGenerator(16);
+        }
 
-		public void StartNewGame(IRenderer consoleRenderer, IReader consoleReader, Scoreboard scoreboard,INumberGenerator numberGenerator)
-		{
-			MatrixGenerator matrixGenerator = new MatrixGenerator(CommonConstants.GAME_BOARD_SIZE,numberGenerator);
-			int[,] currentMatrix = matrixGenerator.GenerateMatrix();
-			//int matrixLength = currentMatrix.GetLength(0);
-			IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker();
-			MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
-			Point emptyPoint = matrixRandomizator.Randomize(currentMatrix);
-			Command currentCommand;
+        public void Restart()
+        {
+            gameEnd = true;
+        }
 
-			consoleRenderer.PrintWelcome();
+        public void Exit(IRenderer consoleRenderer)
+        {
+            consoleRenderer.PrintLine(CommonConstants.GOODBYE);
+            isGameOver = false;
+            Restart();
+        }
 
-			// main algorithm
-			int playerMoves = 0;
-			gameEnd = false;
-			string inputString = "";
-			while (!gameEnd)
-			{
-				consoleRenderer.RenderMatrix(currentMatrix);
-				if (equalMatrixChecker.IsSorted(currentMatrix))  // IsGameWon check
-				{
-					consoleRenderer.PrintGameWon(playerMoves);
+        public void StartNewGame()
+        {
+            MatrixGenerator matrixGenerator = new MatrixGenerator(CommonConstants.GAME_BOARD_SIZE, this.numberGenerator);
+            int[,] currentMatrix = matrixGenerator.GenerateMatrix();
+            //int matrixLength = currentMatrix.GetLength(0);
+            IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker();
+            MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
+            Point emptyPoint = matrixRandomizator.Randomize(currentMatrix);
+            Command currentCommand;
 
-					consoleRenderer.Print(CommonConstants.PLAYER_NAME);
-					string playerName = "";
-					while (true)
-					{
-						playerName = consoleReader.Read();
-						if (!string.IsNullOrEmpty(playerName))
-						{
-							break;
-						}
-						consoleRenderer.Print(CommonConstants.NON_EMPTY_PLAYER_NAME);
-					}
+            this.renderer.PrintWelcome();
 
-					Player currentPlayer = new Player(playerName, playerMoves);
-					scoreboard.AddPlayer(currentPlayer);
+            // main algorithm
+            int playerMoves = 0;
+            gameEnd = false;
+            string inputString = "";
+            while (!gameEnd)
+            {
+                this.renderer.RenderMatrix(currentMatrix);
+                if (equalMatrixChecker.IsSorted(currentMatrix))  // IsGameWon check
+                {
+                    this.renderer.PrintGameWon(playerMoves);
 
-					consoleRenderer.RenderScoreboard(scoreboard);
-					return;
-				}
+                    this.renderer.Print(CommonConstants.PLAYER_NAME);
+                    string playerName = "";
+                    while (true)
+                    {
+                        playerName = this.inputReader.Read();
+                        if (!string.IsNullOrEmpty(playerName))
+                        {
+                            break;
+                        }
+                         this.renderer.Print(CommonConstants.NON_EMPTY_PLAYER_NAME);
+                    }
 
-				consoleRenderer.Print(CommonConstants.NUMBER_TO_MOVE);
-				inputString = consoleReader.Read();
+                    Player currentPlayer = new Player(playerName, playerMoves);
+                    scoreboard.AddPlayer(currentPlayer);
 
-				switch (inputString)
-				{
-					case "exit":
-						currentCommand = new ExitCommand(consoleRenderer, this);
-						break;
-					case "restart":
-						currentCommand = new RestartCommand(this);
-						break;
-					case "top":
-						currentCommand = new ShowScoreboardCommand(consoleRenderer, scoreboard);
-						break;
-					default:
-						currentCommand = new DefaultCommand(currentMatrix, consoleRenderer, emptyPoint, inputString);
-						break;
-				}
+                     this.renderer.RenderScoreboard(scoreboard);
+                    return;
+                }
 
-				currentCommand.Execute();
-				// type checking is bad
-				if (currentCommand is DefaultCommand && (currentCommand as DefaultCommand).IsPlayerMoved)
-				{
-					playerMoves++;
-				}
-			}
-		}
-	}
+                 this.renderer.Print(CommonConstants.NUMBER_TO_MOVE);
+                inputString = this.inputReader.Read();
+
+                switch (inputString)
+                {
+                    case "exit":
+                        currentCommand = new ExitCommand( this.renderer, this);
+                        break;
+                    case "restart":
+                        currentCommand = new RestartCommand(this);
+                        break;
+                    case "top":
+                        currentCommand = new ShowScoreboardCommand( this.renderer, scoreboard);
+                        break;
+                    default:
+                        currentCommand = new DefaultCommand(currentMatrix,  this.renderer, emptyPoint, inputString);
+                        break;
+                }
+
+                currentCommand.Execute();
+                // type checking is bad
+                if (currentCommand is DefaultCommand && (currentCommand as DefaultCommand).IsPlayerMoved)
+                {
+                    playerMoves++;
+                }
+            }
+        }
+    }
 }
