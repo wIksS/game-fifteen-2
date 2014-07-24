@@ -2,7 +2,7 @@
 {
     using GameFifteen.Common.Utils;
 
-    class MatrixEmptyCellRandomizator
+    public class MatrixEmptyCellRandomizator
     {
         private readonly int MAX_RANDOM_DIRECTION_INDEX = Directions.GetDirection.GetLength(0) - 1;
 
