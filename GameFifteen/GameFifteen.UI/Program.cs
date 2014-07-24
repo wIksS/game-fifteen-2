@@ -11,10 +11,11 @@
             IReader inputReader = new ConsoleReader();
             GameEngine gameEngine = new GameEngine();
             Scoreboard scoreboard = new Scoreboard();
+            INumberGenerator numberGenerator = new NumberGenerator(16);
 
             do
             {
-                gameEngine.StartNewGame(renderer, inputReader,scoreboard);
+                gameEngine.StartNewGame(renderer, inputReader,scoreboard,numberGenerator);
             }
             while (gameEngine.IsGameOver);
         }

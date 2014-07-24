@@ -31,12 +31,12 @@
 			Restart();
 		}
 
-		public void StartNewGame(IRenderer consoleRenderer, IReader consoleReader, Scoreboard scoreboard)
+		public void StartNewGame(IRenderer consoleRenderer, IReader consoleReader, Scoreboard scoreboard,INumberGenerator numberGenerator)
 		{
-			MatrixGenerator matrixGenerator = new MatrixGenerator(CommonConstants.GAME_BOARD_SIZE);
+			MatrixGenerator matrixGenerator = new MatrixGenerator(CommonConstants.GAME_BOARD_SIZE,numberGenerator);
 			int[,] currentMatrix = matrixGenerator.GenerateMatrix();
 			int matrixLength = currentMatrix.GetLength(0);
-			IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(new MatrixGenerator(matrixLength));
+			IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker(new MatrixGenerator(matrixLength,numberGenerator));
 			MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
 			Point emptyPoint = matrixRandomizator.Randomize(currentMatrix);
 			Command currentCommand;

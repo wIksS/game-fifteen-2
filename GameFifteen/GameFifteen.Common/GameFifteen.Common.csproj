@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
+    <Compile Include="Contracts\INumberGenerator.cs" />
     <Compile Include="Contracts\IReader.cs" />
     <Compile Include="Contracts\IEqualMatrixChecker.cs" />
     <Compile Include="Contracts\IMatrixGenerator.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="DefaultCommand.cs" />
     <Compile Include="EqualMatrixChecker.cs" />
     <Compile Include="ExitCommand.cs" />
+    <Compile Include="NumberGenerator.cs" />
     <Compile Include="RestartCommand.cs" />
     <Compile Include="ShowScoreboardCommand.cs" />
     <Compile Include="Utils\CommonConstants.cs" />

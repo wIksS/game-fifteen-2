@@ -7,11 +7,13 @@
     {
         private int[,] gameMatrix;
         private int matrixLength;
+        private INumberGenerator numberGenerator;
 
-        public MatrixGenerator(int matrixLength)
+        public MatrixGenerator(int matrixLength,INumberGenerator numberGenerator)
         {
             this.matrixLength = matrixLength;
             this.gameMatrix = new int[matrixLength, matrixLength];
+            this.numberGenerator = numberGenerator;
         }
 
         public int[,] GenerateMatrix()
@@ -22,7 +24,7 @@
             {
                 for (int j = 0; j < this.matrixLength; j++)
                 {
-                    this.gameMatrix[i, j] = tempMatrixValue;
+                    this.gameMatrix[i, j] = numberGenerator.GetNumber(tempMatrixValue);
                     tempMatrixValue++;
                 }
             }
