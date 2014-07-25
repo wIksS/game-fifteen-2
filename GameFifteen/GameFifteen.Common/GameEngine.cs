@@ -2,7 +2,7 @@
 {
     using GameFifteen.Common.Contracts;
     using GameFifteen.Common.Utils;
-    using GameFifteen.UI;
+    using GameFifteen.Common.UI;
 
     public class GameEngine
     {
@@ -44,7 +44,7 @@
 
         public void StartNewGame()
         {
-            MatrixGenerator matrixGenerator = new MatrixGenerator(CommonConstants.GAME_BOARD_SIZE, this.numberGenerator);
+            IMatrixGenerator matrixGenerator = new MatrixGenerator(CommonConstants.GAME_BOARD_SIZE, this.numberGenerator);
             int[,] currentMatrix = matrixGenerator.GenerateMatrix();
             //int matrixLength = currentMatrix.GetLength(0);
             IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker();
