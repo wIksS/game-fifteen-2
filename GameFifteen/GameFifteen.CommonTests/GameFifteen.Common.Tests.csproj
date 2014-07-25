@@ -56,9 +56,9 @@
     <Compile Include="SortedMatrixGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GameFifteen.Common\GameFifteen.Common.csproj">
+    <ProjectReference Include="..\GameFifteen.Common\GameFifteen.csproj">
       <Project>{84FCDC79-FB7A-45E8-B288-A6A6DCBF0062}</Project>
-      <Name>GameFifteen.Common</Name>
+      <Name>GameFifteen</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

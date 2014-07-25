@@ -55,13 +55,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GameFifteen.Common\GameFifteen.Common.csproj">
+    <ProjectReference Include="..\GameFifteen.Common\GameFifteen.csproj">
       <Project>{84fcdc79-fb7a-45e8-b288-a6a6dcbf0062}</Project>
-      <Name>GameFifteen.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GameFifteen.UI\GameFifteen.UI.csproj">
-      <Project>{A7154BDB-798B-402E-B0ED-AC9A9727BF9B}</Project>
-      <Name>GameFifteen.UI</Name>
+      <Name>GameFifteen</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

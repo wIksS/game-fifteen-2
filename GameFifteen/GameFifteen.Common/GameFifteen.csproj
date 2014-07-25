@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{84FCDC79-FB7A-45E8-B288-A6A6DCBF0062}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GameFifteen.Common</RootNamespace>
     <AssemblyName>GameFifteen.Common</AssemblyName>
@@ -29,6 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PowerCollections">
       <HintPath>..\packages\XAct.Wintellect.PowerCollections.0.0.1\lib\net20\PowerCollections.dll</HintPath>
@@ -42,40 +45,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command.cs" />
+    <Compile Include="Logic\Command.cs" />
     <Compile Include="Contracts\INumberGenerator.cs" />
     <Compile Include="Contracts\IReader.cs" />
     <Compile Include="Contracts\IEqualMatrixChecker.cs" />
     <Compile Include="Contracts\IMatrixGenerator.cs" />
     <Compile Include="Contracts\IRenderer.cs" />
-    <Compile Include="DefaultCommand.cs" />
-    <Compile Include="EqualMatrixChecker.cs" />
-    <Compile Include="ExitCommand.cs" />
-    <Compile Include="NumberGenerator.cs" />
-    <Compile Include="RestartCommand.cs" />
-    <Compile Include="ShowScoreboardCommand.cs" />
-    <Compile Include="UI\ConsoleInput.cs" />
+    <Compile Include="Logic\DefaultCommand.cs" />
+    <Compile Include="Logic\EqualMatrixChecker.cs" />
+    <Compile Include="Logic\ExitCommand.cs" />
+    <Compile Include="Common\NumberGenerator.cs" />
+    <Compile Include="Logic\RestartCommand.cs" />
+    <Compile Include="Logic\ShowScoreboardCommand.cs" />
+    <Compile Include="UI\ConsoleReader.cs" />
     <Compile Include="UI\ConsoleRenderer.cs" />
+    <Compile Include="EntryPoint.cs" />
     <Compile Include="UI\UIConstants.cs" />
-    <Compile Include="Utils\CommonConstants.cs" />
+    <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Utils\Directions.cs" />
-    <Compile Include="Utils\OutOfMatrixChecker.cs" />
-    <Compile Include="Utils\EmptyCellMover.cs" />
-    <Compile Include="MatrixEmptyCellRandomizator.cs" />
-    <Compile Include="MatrixGenerator.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Engine\GameEngine.cs" />
-    <Compile Include="Point.cs" />
+    <Compile Include="Logic\OutOfMatrixChecker.cs" />
+    <Compile Include="Logic\EmptyCellMover.cs" />
+    <Compile Include="Logic\MatrixEmptyCellRandomizator.cs" />
+    <Compile Include="Logic\MatrixGenerator.cs" />
+    <Compile Include="Common\Player.cs" />
+    <Compile Include="Logic\GameEngine.cs" />
+    <Compile Include="Common\Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scoreboard.cs" />
-    <Compile Include="Utils\RandomUtils.cs" />
+    <Compile Include="Common\Scoreboard.cs" />
+    <Compile Include="Utils\RandomGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GameObjects\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

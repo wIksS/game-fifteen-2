@@ -21,7 +21,12 @@
                 matrixAsString.Append(UIConstants.WALL_SYMBOL);
                 for (int col = 0; col < matrixLength; col++)
                 {
-                    matrixAsString.AppendFormat("{0,3}",matrix[row,col]);
+                    string currentMatrixSymbol = matrix[row, col].ToString();
+                     if (int.Parse(currentMatrixSymbol) == CommonConstants.INITIAL_EMPTY_CELL)
+                    {
+                        currentMatrixSymbol = " ";
+                    }
+                    matrixAsString.AppendFormat("{0,3}",currentMatrixSymbol);
                 }
                 matrixAsString.AppendLine(UIConstants.WALL_SYMBOL);
             }

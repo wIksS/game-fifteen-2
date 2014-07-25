@@ -10,10 +10,10 @@
 
         public Point Randomize(int[,] matrix)
         {
-            int randomizeMoves = RandomUtils.GetRandomNumber(CommonConstants.MIN_MOOVES_RANDOM_NUMBER, CommonConstants.MAX_MOOVES_RANDOM_NUMBER);
+            int randomizeMoves = RandomGenerator.GetRandomNumber(CommonConstants.MIN_MOOVES_RANDOM_NUMBER, CommonConstants.MAX_MOOVES_RANDOM_NUMBER);
             for (int i = 0; i < randomizeMoves; i++)
             {
-                int randomDirection = RandomUtils.GetRandomNumber(MAX_RANDOM_DIRECTION_INDEX);
+                int randomDirection = RandomGenerator.GetRandomNumber(MAX_RANDOM_DIRECTION_INDEX);
                 Point direction = Directions.GetDirection[randomDirection];
                 Point newEmptyPoint = new Point(emptyPoint.Row + direction.Row, emptyPoint.Col + direction.Col);
 

@@ -1,6 +1,6 @@
-﻿namespace GameFifteen.Common
+﻿namespace GameFifteen.Common.Utils
 {
-    using GameFifteen.Common.Utils;
+    using GameFifteen.Common;
 
     public class EmptyCellMover
     {

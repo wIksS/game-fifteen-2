@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class RandomUtils
+    public class RandomGenerator
     {
         private static Random numberInMatrix = new Random();
 

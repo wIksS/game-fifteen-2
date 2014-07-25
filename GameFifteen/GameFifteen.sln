@@ -1,11 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFifteen.Common", "GameFifteen.Common\GameFifteen.Common.csproj", "{84FCDC79-FB7A-45E8-B288-A6A6DCBF0062}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFifteen.UI", "GameFifteen.UI\GameFifteen.UI.csproj", "{A7154BDB-798B-402E-B0ED-AC9A9727BF9B}"
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFifteen", "GameFifteen.Common\GameFifteen.csproj", "{84FCDC79-FB7A-45E8-B288-A6A6DCBF0062}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFifteen.Common.Tests", "GameFifteen.CommonTests\GameFifteen.Common.Tests.csproj", "{D31E2551-6F4E-4339-9711-7E020262D5B0}"
 EndProject
@@ -21,10 +17,6 @@ Global
 		{84FCDC79-FB7A-45E8-B288-A6A6DCBF0062}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84FCDC79-FB7A-45E8-B288-A6A6DCBF0062}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84FCDC79-FB7A-45E8-B288-A6A6DCBF0062}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A7154BDB-798B-402E-B0ED-AC9A9727BF9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A7154BDB-798B-402E-B0ED-AC9A9727BF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A7154BDB-798B-402E-B0ED-AC9A9727BF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A7154BDB-798B-402E-B0ED-AC9A9727BF9B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D31E2551-6F4E-4339-9711-7E020262D5B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D31E2551-6F4E-4339-9711-7E020262D5B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D31E2551-6F4E-4339-9711-7E020262D5B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
