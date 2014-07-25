@@ -26,7 +26,7 @@
 
             renderer = new ConsoleRenderer();
             inputReader = new ConsoleReader();
-            scoreboard = new Scoreboard();
+            scoreboard = Scoreboard.Instance;
             numberGenerator = new NumberGenerator(16);
         }
 

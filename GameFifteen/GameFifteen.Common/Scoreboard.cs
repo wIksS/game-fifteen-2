@@ -7,11 +7,24 @@
 
     public class Scoreboard
     {
+        private static Scoreboard instance;
         private List<Player> players;
 
-        public Scoreboard()
+        private Scoreboard()
         {
             this.players = new List<Player>();
+        }
+
+        public static Scoreboard Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Scoreboard();
+                }
+                return instance;
+            }
         }
 
         public List<Player> GetPlayers()
