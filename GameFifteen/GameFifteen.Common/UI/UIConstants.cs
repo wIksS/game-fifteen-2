@@ -18,5 +18,8 @@
         internal const string WALL_SYMBOL = "|";
         internal const string SPACE = " ";
         internal const char DASH = '-';
+
+        internal const int MATRIX_INTERVALS = 3;
+
     }
 }

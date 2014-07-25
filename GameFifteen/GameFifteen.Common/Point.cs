@@ -1,6 +1,7 @@
 ﻿namespace GameFifteen.Common
 {
-    public class Point
+    using System;
+    public class Point : ICloneable
     {
         private int row;
         private int col;
@@ -21,6 +22,11 @@
         {
             get { return this.col; }
             set { this.col = value; }
+        }
+
+        public object Clone()
+        {
+            return new Point(this.Row, this.Col);
         }
     }
 }

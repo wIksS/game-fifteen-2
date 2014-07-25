@@ -10,8 +10,8 @@
     {
         public void RenderMatrix(int[,] matrix)
         {
-            string dashes = UIConstants.SPACE + new string(UIConstants.DASH, 12);
             int matrixLength = matrix.GetLength(0);
+            string dashes = UIConstants.SPACE + new string(UIConstants.DASH, matrixLength * UIConstants.MATRIX_INTERVALS);
             StringBuilder matrixAsString = new StringBuilder();
 
             matrixAsString.AppendLine(dashes);
@@ -25,36 +25,6 @@
                 }
                 matrixAsString.AppendLine(UIConstants.WALL_SYMBOL);
             }
-
-            //for (int i = 0; i < matrix.GetLength(0); i++)
-            //{
-            //    matrixAsString.Append(UIConstants.WALL_SYMBOL);
-            //    for (int j = 0; j < matrix.GetLength(0); j++)
-            //    {
-            //        if (matrix[i, j] <= 9)
-            //        {
-            //            matrixAsString.AppendFormat(UIConstants.FIRST_PLACEHOLDER, matrix[i, j]);
-            //        }
-            //        else
-            //        {
-            //            if (matrix[i, j] == 16)
-            //            {
-            //                matrixAsString.Append(UIConstants.EMPTY_SPACES);
-            //            }
-            //            else
-            //            {
-            //                matrixAsString.AppendFormat(UIConstants.SECOND_PLACEHOLDER, matrix[i, j]);
-            //            }
-            //        }
-
-            //        if (j == matrix.GetLength(0) - 1)
-            //        {
-            //            matrixAsString.AppendFormat(UIConstants.WALL_SYMBOL, UIConstants.NEW_LINE);
-            //        }
-            //    }
-
-            //    matrixAsString.AppendLine();
-            //}
 
             matrixAsString.AppendLine(dashes);
 

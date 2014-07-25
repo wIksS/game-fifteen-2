@@ -46,7 +46,6 @@
         {
             IMatrixGenerator matrixGenerator = new MatrixGenerator(CommonConstants.GAME_BOARD_SIZE, this.numberGenerator);
             int[,] currentMatrix = matrixGenerator.GenerateMatrix();
-            //int matrixLength = currentMatrix.GetLength(0);
             IEqualMatrixChecker equalMatrixChecker = new EqualMatrixChecker();
             MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
             Point emptyPoint = matrixRandomizator.Randomize(currentMatrix);
@@ -84,7 +83,7 @@
                     return;
                 }
 
-                 this.renderer.Print(CommonConstants.NUMBER_TO_MOVE);
+                this.renderer.Print(CommonConstants.NUMBER_TO_MOVE);
                 inputString = this.inputReader.Read();
 
                 switch (inputString)
