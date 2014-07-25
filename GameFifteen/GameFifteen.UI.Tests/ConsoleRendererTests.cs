@@ -5,6 +5,7 @@
     using System.Text;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using GameFifteen.Common;
+    using GameFifteen.Common.UI;
   
 
     [TestClass()]
@@ -34,7 +35,7 @@
             var playerName = "Goshko";
             Player player = new Player(playerName, 2);
 
-            Scoreboard scoreboard = new Scoreboard();
+            Scoreboard scoreboard = Scoreboard.Instance;
             scoreboard.AddPlayer(player);
 
             var expected = new StringBuilder();
