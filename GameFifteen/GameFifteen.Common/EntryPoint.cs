@@ -1,7 +1,8 @@
 ﻿namespace GameFifteen
 {
     using GameFifteen.Common;
-    using GameFifteen.Common.Contracts;
+    using GameFifteen.Contracts;
+    using GameFifteen.Logic;
 
     public class Program
     {

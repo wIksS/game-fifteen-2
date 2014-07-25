@@ -1,4 +1,4 @@
-﻿namespace GameFifteen.Common.UI
+﻿namespace GameFifteen.UI
 {
     using System;
 

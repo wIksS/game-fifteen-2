@@ -1,5 +1,7 @@
-﻿namespace GameFifteen.Common
+﻿namespace GameFifteen.Logic
 {
+    using GameFifteen.Common;
+
     public class OutOfMatrixChecker
     {
         public static bool CheckIfOutOfMatrix(Point point, int length)

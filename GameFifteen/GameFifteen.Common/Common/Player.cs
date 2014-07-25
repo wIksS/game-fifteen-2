@@ -1,7 +1,7 @@
 ﻿namespace GameFifteen.Common
 {
     using System;
-    using GameFifteen.Common.Utils;
+    using GameFifteen.Utils;
 
     public class Player
     {

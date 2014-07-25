@@ -1,7 +1,8 @@
-﻿namespace GameFifteen.Common
+﻿namespace GameFifteen.Logic
 {
-    using GameFifteen.Common.Contracts;
     using System;
+    using GameFifteen.Contracts;
+    using GameFifteen.Common;
 
     public class EqualMatrixChecker : IEqualMatrixChecker
     {

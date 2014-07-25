@@ -1,4 +1,4 @@
-﻿namespace GameFifteen.Common
+﻿namespace GameFifteen.Logic
 {
     internal abstract class Command
     {

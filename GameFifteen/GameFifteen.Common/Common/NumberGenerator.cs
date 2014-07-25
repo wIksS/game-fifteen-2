@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GameFifteen.Common.Contracts;
-
-namespace GameFifteen.Common
+﻿namespace GameFifteen.Common
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using GameFifteen.Contracts;
+
     public class NumberGenerator :INumberGenerator
     {
         private IDictionary<int, int> numbers;

@@ -1,6 +1,7 @@
-﻿namespace GameFifteen.Common
+﻿namespace GameFifteen.Logic
 {
-    using GameFifteen.Common.Contracts;
+    using GameFifteen.Contracts;
+    using GameFifteen.Common;
 
     class ShowScoreboardCommand: Command
     {

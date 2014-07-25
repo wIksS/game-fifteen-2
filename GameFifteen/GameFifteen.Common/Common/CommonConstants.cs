@@ -1,4 +1,4 @@
-﻿namespace GameFifteen.Common.Utils
+﻿namespace GameFifteen.Common
 {
     using System;
 

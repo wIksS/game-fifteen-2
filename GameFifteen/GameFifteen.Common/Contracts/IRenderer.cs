@@ -1,5 +1,7 @@
-﻿namespace GameFifteen.Common.Contracts
+﻿namespace GameFifteen.Contracts
 {
+    using GameFifteen.Common;
+
     public interface IRenderer
     {
         void RenderMatrix(int[,] matrix);

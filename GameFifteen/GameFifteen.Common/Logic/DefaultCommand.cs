@@ -1,7 +1,8 @@
-﻿namespace GameFifteen.Common
+﻿namespace GameFifteen.Logic
 {
-    using GameFifteen.Common.Utils;
-    using GameFifteen.Common.Contracts;
+    using GameFifteen.Utils;
+    using GameFifteen.Contracts;
+    using GameFifteen.Common;
 
     class DefaultCommand : Command
     {

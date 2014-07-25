@@ -1,4 +1,4 @@
-﻿namespace GameFifteen.Common.Contracts
+﻿namespace GameFifteen.Contracts
 {
     public interface IReader
     {

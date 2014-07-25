@@ -1,6 +1,7 @@
-﻿namespace GameFifteen.Common
+﻿namespace GameFifteen.Logic
 {
-    using GameFifteen.Common.Utils;
+    using GameFifteen.Utils;
+    using GameFifteen.Common;
 
     public class MatrixEmptyCellRandomizator
     {

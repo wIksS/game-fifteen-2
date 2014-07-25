@@ -1,10 +1,10 @@
-﻿namespace GameFifteen.Common.UI
+﻿namespace GameFifteen.UI
 {
     using System;
     using GameFifteen.Common;
-    using GameFifteen.Common.Contracts;
+    using GameFifteen.Contracts;
     using System.Text;
-    using GameFifteen.Common.Utils;
+    using GameFifteen.Utils;
 
     public class ConsoleRenderer : IRenderer
     {

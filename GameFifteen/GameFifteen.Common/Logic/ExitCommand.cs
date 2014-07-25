@@ -1,6 +1,7 @@
-﻿using GameFifteen.Common.Contracts;
-namespace GameFifteen.Common
+﻿namespace GameFifteen.Logic
 {
+    using GameFifteen.Contracts;
+
     class ExitCommand : Command
     {
 		private readonly IRenderer renderer;

@@ -1,7 +1,8 @@
-﻿namespace GameFifteen.Common
+﻿namespace GameFifteen.Logic
 {
-    using GameFifteen.Common.Contracts;
-    using GameFifteen.Common.Utils;
+    using GameFifteen.Contracts;
+    using GameFifteen.Utils;
+    using GameFifteen.Common;
 
     public class MatrixGenerator : IMatrixGenerator
     {
