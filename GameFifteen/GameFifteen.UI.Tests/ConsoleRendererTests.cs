@@ -5,13 +5,14 @@
     using System.Text;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using GameFifteen.Common;
-    using GameFifteen.Common.UI;
+    using GameFifteen.UI;
   
 
     [TestClass()]
     public class ConsoleRendererTests
     {
-        ConsoleRenderer render = new ConsoleRenderer();
+        readonly ConsoleRenderer render = new ConsoleRenderer();
+
         [TestMethod()]
         public void PrintWelcomeМessageTest()
         {
@@ -26,7 +27,6 @@
 
             Assert.AreEqual(currentConsoleOut, Console.Out);
         }
-
 
         [TestMethod()]
         public void PrintScoreboardTest()

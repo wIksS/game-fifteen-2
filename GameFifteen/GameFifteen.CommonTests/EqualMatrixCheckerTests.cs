@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GameFifteen.Common.Contracts;
+using GameFifteen.Contracts;
 
-namespace GameFifteen.Common.Tests
+namespace GameFifteen.Logic.Tests
 {
     [TestClass()]
     public class EqualMatrixCheckerTests

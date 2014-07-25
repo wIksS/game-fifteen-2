@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFifteen", "GameFifteen.Common\GameFifteen.csproj", "{84FCDC79-FB7A-45E8-B288-A6A6DCBF0062}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFifteen.Common.Tests", "GameFifteen.CommonTests\GameFifteen.Common.Tests.csproj", "{D31E2551-6F4E-4339-9711-7E020262D5B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFifteen.Logic.Tests", "GameFifteen.CommonTests\GameFifteen.Logic.Tests.csproj", "{D31E2551-6F4E-4339-9711-7E020262D5B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFifteen.UI.Tests", "GameFifteen.UI.Tests\GameFifteen.UI.Tests.csproj", "{F1CAACD6-8DD1-49B7-8709-9D8425E2DB6F}"
 EndProject

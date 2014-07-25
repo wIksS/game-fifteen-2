@@ -1,13 +1,14 @@
-﻿namespace GameFifteen.Common.Tests
+﻿namespace GameFifteen.Logic.Tests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using GameFifteen.Common;
-    using GameFifteen.Common.Contracts;
+    using GameFifteen.Contracts;
+    using GameFifteen.Logic;
 
     [TestClass()]
     public class MatrixGeneratorTests
     {
-        private INumberGenerator numberGenerator = new NumberGenerator(16);
+        private readonly INumberGenerator numberGenerator = new NumberGenerator(16);
 
         [TestMethod()]
         public void IfOutOfMAtrixTest()
