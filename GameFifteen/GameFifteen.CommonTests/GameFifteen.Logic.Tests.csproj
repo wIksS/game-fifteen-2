@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="EqualMatrixCheckerTests.cs" />
     <Compile Include="EmptyCellMoverTests.cs" />
+    <Compile Include="OutOfMatrixCheckerTests.cs" />
     <Compile Include="MatrixGeneratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortedMatrixGenerator.cs" />
