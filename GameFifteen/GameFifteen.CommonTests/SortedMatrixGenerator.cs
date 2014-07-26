@@ -16,7 +16,7 @@ namespace GameFifteen.Logic.Tests
         public int[,] GenerateMatrix()
         {
             int tempMatrixValue = 1;
-            int[,] matrix = new int[4, 4];
+            int[,] matrix = new int[size, size];
 
             for (int i = 0; i < size; i++)
             {
