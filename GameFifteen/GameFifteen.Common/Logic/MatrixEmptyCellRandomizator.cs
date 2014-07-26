@@ -1,5 +1,6 @@
 ﻿namespace GameFifteen.Logic
 {
+    using System;
     using GameFifteen.Utils;
     using GameFifteen.Common;
 
@@ -11,6 +12,10 @@
 
         public Point Randomize(int[,] matrix)
         {
+            if (matrix == null)
+            {
+                throw new ArgumentNullException("The matrix cannot be null or empty");
+            }
             int randomizeMoves = RandomGenerator.GetRandomNumber(CommonConstants.MIN_MOOVES_RANDOM_NUMBER, CommonConstants.MAX_MOOVES_RANDOM_NUMBER);
             for (int i = 0; i < randomizeMoves; i++)
             {
