@@ -29,12 +29,6 @@
 
         public List<Player> GetPlayers()
         {
-			//there is a condition in ConsoleRenderer
-            /*if (this.players.Count == 0)
-            {
-                throw new ArgumentNullException("Players must be added to the scoreboard before getting it.");
-            }*/
-
             return this.players;
         }
 

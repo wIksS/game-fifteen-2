@@ -32,24 +32,22 @@
         public void PrintScoreboardTest()
         {
             var currentConsoleOut = Console.Out;
-            var playerName = "Goshko";
-            Player player = new Player(playerName, 2);
+            var playerName = "Aashko";
+            Player player = new Player(playerName, 0);
 
             Scoreboard scoreboard = Scoreboard.Instance;
             scoreboard.AddPlayer(player);
+            scoreboard.AddPlayer(player);
 
             var expected = new StringBuilder();
-            expected.AppendLine("Scoreboard:\n1. Goshko --> 2 moves");
-            //expected.AppendLine("1. Goshko --> 2 moves");
-            expected.AppendLine();
+            expected.AppendLine("Scoreboard:\n1. Aashko --> 0 moves");
 
             using (var consoleOutput = new ConsoleOutput())
             {
                 render.RenderScoreboard(scoreboard);
-                Assert.AreEqual(expected.ToString(), consoleOutput.GetOuput());
+                bool containsString = consoleOutput.GetOuput().ToString().Contains(expected.ToString());
+                Assert.AreEqual(true, containsString);
             }
-
-            Assert.AreEqual(currentConsoleOut, Console.Out);
         }
     }
 }
