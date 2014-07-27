@@ -1,7 +1,6 @@
 ﻿namespace GameFifteen.Tests.Logic
 {
     using System;
-    using GameFifteen.Common;
     using GameFifteen.Contracts;
     using GameFifteen.Logic;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -9,37 +8,59 @@
     [TestClass()]
     public class MatrixEmptyCellRandomizatorTests
     {
-        private readonly INumberGenerator numberGenerator = new NumberGenerator(16);
-
         [TestMethod()]
-        public void RandomizeTest()
+        public void IsRandomTest()
         {
-            IMatrixGenerator matrixGenerator = new MatrixGenerator(4, this.numberGenerator);
-
-            var firstMatrix = matrixGenerator.GenerateMatrix();
-            var secondMatrix = matrixGenerator.GenerateMatrix();
+            IMatrixGenerator matrixGenerator = new SortedMatrixGenerator(4);
+            var firstRandomMatrix = matrixGenerator.GenerateMatrix();
+            var secondRandomMatrix = matrixGenerator.GenerateMatrix();
 
             MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
-            MatrixEmptyCellRandomizator matrixRandomizator2 = new MatrixEmptyCellRandomizator();
+            matrixRandomizator.Randomize(firstRandomMatrix);
+            matrixRandomizator.Randomize(secondRandomMatrix);
 
-            Point emptyPoint = matrixRandomizator.Randomize(firstMatrix);
-            Point emptyPoint2 = matrixRandomizator2.Randomize(secondMatrix);
+            MatrixComparer comparer = new MatrixComparer();
 
-            Assert.AreEqual(firstMatrix, secondMatrix);
+            Assert.IsFalse(comparer.AreEqual(firstRandomMatrix, secondRandomMatrix));
+        }
+
+        [TestMethod()]
+        public void IsRandomEveryInstanceTest()
+        {
+            IMatrixGenerator matrixGenerator = new SortedMatrixGenerator(4);
+            var firstRandomMatrix = matrixGenerator.GenerateMatrix();
+            var secondRandomMatrix = matrixGenerator.GenerateMatrix();
+
+            MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
+            matrixRandomizator.Randomize(firstRandomMatrix);
+
+            matrixRandomizator = new MatrixEmptyCellRandomizator();
+            matrixRandomizator.Randomize(secondRandomMatrix);
+
+            MatrixComparer comparer = new MatrixComparer();
+
+            Assert.IsFalse(comparer.AreEqual(firstRandomMatrix, secondRandomMatrix));
         }
 
         [TestMethod()]
         public void IsRandomizedEmptyCellTest()
         {
-            IMatrixGenerator matrixGenerator = new MatrixGenerator(4, this.numberGenerator);
-            IMatrixGenerator testMatrixGenerator = new SortedMatrixGenerator(4);
-
-            var firstMatrix = matrixGenerator.GenerateMatrix();
-
+            IMatrixGenerator matrixGenerator = new SortedMatrixGenerator(4);
+            int[,] matrix = matrixGenerator.GenerateMatrix();
             MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
-            Point emptyPoint = matrixRandomizator.Randomize(firstMatrix);
+            matrixRandomizator.Randomize(matrix);
+            MatrixComparer comparer = new MatrixComparer();
 
-            Assert.AreNotEqual(firstMatrix, testMatrixGenerator);
+            Assert.IsFalse(comparer.IsSorted(matrix));
+        }
+
+        [TestMethod()]
+        public void RandomizOneCellTest()
+        {
+            IMatrixGenerator matrixGenerator = new SortedMatrixGenerator(1);
+            int[,] matrix = matrixGenerator.GenerateMatrix();
+            MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
+            matrixRandomizator.Randomize(matrix);
         }
 
         [TestMethod()]
@@ -48,7 +69,7 @@
         {
             int[,] matrix = null;
             MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
-            Point emptyPoint = matrixRandomizator.Randomize(matrix);
+            matrixRandomizator.Randomize(matrix);
         }
     }
 }

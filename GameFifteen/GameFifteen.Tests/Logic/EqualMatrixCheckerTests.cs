@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using GameFifteen.Logic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GameFifteen.Contracts;
+using GameFifteen.Logic;
 
 namespace GameFifteen.Tests.Logic
 {
