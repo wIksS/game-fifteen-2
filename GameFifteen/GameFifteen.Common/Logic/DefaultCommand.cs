@@ -4,6 +4,7 @@
     using GameFifteen.Contracts;
     using GameFifteen.Common;
 
+    /// <summary>Represents a default command.</summary>
     internal class DefaultCommand : Command
     {
         private IRenderer renderer;
@@ -14,6 +15,11 @@
 
         //TODO: Separate this class in 2 more classes. MooveCommandExecutor and ValidMooveCommandChecker
 
+        /// <summary>Constructor.</summary>
+        /// <param name="matrix" type="int[,]">The matrix.</param>
+        /// <param name="renderer" type="IRenderer">The renderer.</param>
+        /// <param name="emptyPoint" type="Point">The empty point.</param>
+        /// <param name="inputString" type="string">The input string.</param>
         public DefaultCommand(int[,] matrix, IRenderer renderer, Point emptyPoint, string inputString)
         {
             this.matrix = matrix;
@@ -22,12 +28,14 @@
             this.inputString = inputString;
         }
 
+        /// <summary>Gets or sets a value indicating whether this object is player moved.</summary>
+        /// <value>true if this object is player moved, false if not.</value>
         public bool IsPlayerMoved
         {
             get { return this.isPlayerMoved; }
             private set { this.isPlayerMoved = value; }
         }
-
+        /// <summary>Executes this object.</summary>
         public override void Execute()
         {
             this.IsPlayerMoved = false;

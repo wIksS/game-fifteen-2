@@ -3,8 +3,17 @@
     using System;
     using GameFifteen.Common;
 
+    /// <summary>Represents an empty cell mover.</summary>
     public class EmptyCellMover
     {
+        /// <summary>Move empty cell.</summary>
+        /// <exception cref="ArgumentNullException">   Thrown when one or more required arguments are
+        ///                                            null.</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the index is outside the required
+        ///                                            range.</exception>
+        /// <param name="emptyPoint" type="Point">The empty point.</param>
+        /// <param name="newPoint" type="Point">The new point.</param>
+        /// <param name="matrix" type="int[,]">The matrix.</param>
         public static void MoveEmptyCell(Point emptyPoint, Point newPoint, int[,] matrix)
         {
             if (matrix == null)

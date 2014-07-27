@@ -4,12 +4,15 @@
     using GameFifteen.Utils;
     using GameFifteen.Common;
 
+    /// <summary>Represents a matrix empty cell randomizator.</summary>
     public class MatrixEmptyCellRandomizator
     {
         private readonly int MAX_RANDOM_DIRECTION_INDEX = Directions.GetDirection.GetLength(0) - 1;
 
-        //private Point emptyPoint = new Point(CommonConstants.INIT_POINT_POSITION, CommonConstants.INIT_POINT_POSITION);
-
+        /// <summary>Randomizes the given matrix.</summary>
+        /// <exception cref="ArgumentNullException">Thrown when one or more required arguments are null.</exception>
+        /// <param name="matrix" type="int[,]">The matrix.</param>
+        /// <returns>A Point.</returns>
         public Point Randomize(int[,] matrix)
         {
             if (matrix == null)

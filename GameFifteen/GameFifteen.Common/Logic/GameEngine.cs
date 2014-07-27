@@ -5,6 +5,7 @@
     using GameFifteen.UI;
     using GameFifteen.Common;
 
+    /// <summary>Represents a game engine.</summary>
     public class GameEngine
     {
         private bool isGameOver;
@@ -15,12 +16,15 @@
         private Scoreboard scoreboard;
         private INumberGenerator numberGenerator;
 
+        /// <summary>Gets or sets a value indicating whether this object is game over.</summary>
+        /// <value>true if this object is game over, false if not.</value>
         public bool IsGameOver
         {
             get { return this.isGameOver; }
             private set { this.isGameOver = value; }
         }
 
+        /// <summary>Default constructor.</summary>
         public GameEngine()
         {
             isGameOver = true;
@@ -31,11 +35,14 @@
             numberGenerator = new NumberGenerator(CommonConstants.GAME_BOARD_SIZE * CommonConstants.GAME_BOARD_SIZE);
         }
 
+        /// <summary>Restarts this object.</summary>
         public void Restart()
         {
             gameEnd = true;
         }
 
+        /// <summary>Exits the given console renderer.</summary>
+        /// <param name="consoleRenderer" type="IRenderer">The console renderer.</param>
         public void Exit(IRenderer consoleRenderer)
         {
             consoleRenderer.PrintLine(CommonConstants.GOODBYE);
@@ -43,6 +50,7 @@
             Restart();
         }
 
+        /// <summary>Starts new game.</summary>
         public void StartNewGame()
         {
             IMatrixGenerator matrixGenerator = new MatrixGenerator(CommonConstants.GAME_BOARD_SIZE, this.numberGenerator);

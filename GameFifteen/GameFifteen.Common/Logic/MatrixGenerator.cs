@@ -4,19 +4,25 @@
     using GameFifteen.Utils;
     using GameFifteen.Common;
 
+    /// <summary>Represents a matrix generator.</summary>
     public class MatrixGenerator : IMatrixGenerator
     {
         private int[,] gameMatrix;
         private int matrixLength;
         private INumberGenerator numberGenerator;
 
-        public MatrixGenerator(int matrixLength,INumberGenerator numberGenerator)
+        /// <summary>Constructor.</summary>
+        /// <param name="matrixLength" type="int">Length of the matrix.</param>
+        /// <param name="numberGenerator" type="INumberGenerator">Number generator.</param>
+        public MatrixGenerator(int matrixLength, INumberGenerator numberGenerator)
         {
             this.matrixLength = matrixLength;
             this.gameMatrix = new int[matrixLength, matrixLength];
             this.numberGenerator = numberGenerator;
         }
 
+        /// <summary>Generates a matrix.</summary>
+        /// <returns>The matrix.</returns>
         public int[,] GenerateMatrix()
         {
             int tempMatrixValue = CommonConstants.INITIAL_MATRIX_NUMBER;
@@ -31,11 +37,6 @@
             }
 
             return this.gameMatrix;
-
-            //if (IfEqualMatrix())
-            //{
-            //    GenerateMatrix();
-            //}
         }
     }
 }

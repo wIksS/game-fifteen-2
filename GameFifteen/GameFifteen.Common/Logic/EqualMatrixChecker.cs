@@ -4,8 +4,13 @@
     using GameFifteen.Contracts;
     using GameFifteen.Common;
 
+    /// <summary>Represents an equal matrix checker.</summary>
     public class EqualMatrixChecker : IEqualMatrixChecker
     {
+        /// <summary>Query if 'currentMatrix' is sorted.</summary>
+        /// <exception cref="ArgumentNullException">Thrown when one or more required arguments are null.</exception>
+        /// <param name="currentMatrix" type="int[,]">The matrix.</param>
+        /// <returns>true if sorted, false if not.</returns>
         public bool IsSorted(int[,] currentMatrix)
         {
             if (currentMatrix == null)
