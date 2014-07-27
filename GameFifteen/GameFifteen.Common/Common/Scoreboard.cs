@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>Represents a scoreboard.</summary>
     public class Scoreboard
     {
         private static Scoreboard instance;
@@ -15,6 +16,8 @@
             this.players = new List<Player>();
         }
 
+        /// <summary>Gets the instance of scoreboard.</summary>
+        /// <value>The instance of scoreboard..</value>
         public static Scoreboard Instance
         {
             get
@@ -27,11 +30,17 @@
             }
         }
 
+        /// <summary>Gets the players.</summary>
+        /// <returns>The players.</returns>
         public List<Player> GetPlayers()
         {
             return this.players;
         }
 
+        /// <summary>Adds a player.</summary>
+        /// <exception cref="ArgumentException">Thrown when one or more arguments have unsupported or
+        ///                                     illegal values.</exception>
+        /// <param name="player" type="Player">The player.</param>
         public void AddPlayer(Player player)
         {
             if (player == null)
