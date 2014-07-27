@@ -1,7 +1,6 @@
 ﻿namespace GameFifteen.Common
 {
     using System;
-    using GameFifteen.Utils;
 
     public class Player
     {
@@ -19,9 +18,9 @@
             get { return this.name; }
             set
             {
-                if (value == null || value == String.Empty)
+                if (String.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException(CommonConstants.INVALID_PLAYER_NAME);
+                    throw new ArgumentNullException(CommonConstants.INVALID_PLAYER_NAME);
                 }
 
                 this.name = value;
