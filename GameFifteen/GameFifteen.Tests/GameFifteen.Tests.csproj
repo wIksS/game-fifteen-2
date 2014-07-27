@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Common\PlayerTests.cs" />
+    <Compile Include="Logic\EqualMatrixChecker.cs" />
     <Compile Include="Logic\EqualMatrixCheckerTests.cs" />
     <Compile Include="Logic\MatrixEmptyCellRandomizatorTests.cs" />
     <Compile Include="Logic\MatrixGeneratorTests.cs" />
