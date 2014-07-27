@@ -16,6 +16,12 @@
             {
                 throw new ArgumentNullException("The matrix cannot be null or empty");
             }
+
+            if (matrix.GetLength(0) <= 1 && matrix.GetLength(1) <= 1)
+            {
+                return emptyPoint;
+            }
+
             int randomizeMoves = RandomGenerator.GetRandomNumber(CommonConstants.MIN_MOOVES_RANDOM_NUMBER, CommonConstants.MAX_MOOVES_RANDOM_NUMBER);
             for (int i = 0; i < randomizeMoves; i++)
             {

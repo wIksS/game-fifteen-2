@@ -64,6 +64,15 @@
         }
 
         [TestMethod()]
+        public void RandomizZeroCellTest()
+        {
+            IMatrixGenerator matrixGenerator = new SortedMatrixGenerator(0);
+            int[,] matrix = matrixGenerator.GenerateMatrix();
+            MatrixEmptyCellRandomizator matrixRandomizator = new MatrixEmptyCellRandomizator();
+            matrixRandomizator.Randomize(matrix);
+        }
+
+        [TestMethod()]
         [ExpectedException(typeof(ArgumentNullException))]
         public void IsParameterNullOrEmptyTest()
         {
