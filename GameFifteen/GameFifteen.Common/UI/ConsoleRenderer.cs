@@ -6,8 +6,11 @@
     using System.Text;
     using GameFifteen.Utils;
 
+    /// <summary>Represents a console renderer.</summary>
     public class ConsoleRenderer : IRenderer
     {
+        /// <summary>Renders the matrix described by matrix.</summary>
+        /// <param name="matrix" type="int[,]">The matrix.</param>
         public void RenderMatrix(int[,] matrix)
         {
             int matrixLength = matrix.GetLength(0);
@@ -36,6 +39,8 @@
             this.Print(matrixAsString.ToString());
         }
 
+        /// <summary>Renders the scoreboard described by scoreboard.</summary>
+        /// <param name="scoreboard" type="Scoreboard">The scoreboard.</param>
         public void RenderScoreboard(Scoreboard scoreboard)
         {
             var players = scoreboard.GetPlayers();
@@ -60,22 +65,29 @@
             this.Print(scoreBoardAsString.ToString());
         }
 
+        /// <summary>Print welcome message.</summary>
         public void PrintWelcome()
         {
             this.PrintLine(UIConstants.WELCOME_MESSAGE);
         }
 
+        /// <summary>Print game won message.</summary>
+        /// <param name="moves" type="int">The number of moves.</param>
         public void PrintGameWon(int moves)
         {
             string congratulationsMessage = string.Format(UIConstants.CONGRATULATIONS_MESSAGE, moves);
             this.PrintLine(congratulationsMessage);
         }
 
+        /// <summary>Print line with a message.</summary>
+        /// <param name="mesage" type="string">The message.</param>
 		public void PrintLine(string mesage)
 		{
             ConsoleRender(mesage + UIConstants.NEW_LINE);
 		}
 
+        /// <summary>Prints message.</summary>
+        /// <param name="mesage" type="string">The message.</param>
 		public void Print(string mesage)
 		{
 			ConsoleRender(mesage);

@@ -2,6 +2,7 @@
 {
     using System;
 
+    /// <summary>Represent UI constants.</summary>
     internal static class UIConstants
     {
         internal const string EMPTY_SCOREBOARD_MESSAGE = "Scoreboard is empty";

@@ -2,6 +2,7 @@
 {
     using System;
 
+    /// <summary>Represents common constants.</summary>
     internal static class CommonConstants
     {
         internal const int MAX_PLAYERS_IN_SCOREBOARD = 5;
