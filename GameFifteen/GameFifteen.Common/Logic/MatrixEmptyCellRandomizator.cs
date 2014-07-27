@@ -8,7 +8,7 @@
     {
         private readonly int MAX_RANDOM_DIRECTION_INDEX = Directions.GetDirection.GetLength(0) - 1;
 
-        private Point emptyPoint = new Point(CommonConstants.INIT_POINT_POSITION, CommonConstants.INIT_POINT_POSITION);
+        //private Point emptyPoint = new Point(CommonConstants.INIT_POINT_POSITION, CommonConstants.INIT_POINT_POSITION);
 
         public Point Randomize(int[,] matrix)
         {
@@ -16,6 +16,8 @@
             {
                 throw new ArgumentNullException("The matrix cannot be null or empty");
             }
+
+            Point emptyPoint = new Point(matrix.GetLength(0)-1, matrix.GetLength(1)-1);
 
             if (matrix.GetLength(0) <= 1 && matrix.GetLength(1) <= 1)
             {

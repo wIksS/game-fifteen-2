@@ -3,12 +3,13 @@
     using System;
     using GameFifteen.Contracts;
     using GameFifteen.Logic;
+    using GameFifteen.Common;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass()]
     public class MatrixEmptyCellRandomizatorTests
     {
-        [TestMethod()]
+        [TestMethod(), Timeout(580)]
         public void IsRandomTest()
         {
             IMatrixGenerator matrixGenerator = new SortedMatrixGenerator(4);

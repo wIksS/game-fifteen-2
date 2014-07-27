@@ -17,6 +17,11 @@
                 throw new ArgumentNullException("The point position cannot be null");
             }
 
+            if (point.Col - length >= 2 || point.Row - length >= 2 || point.Row < -1 || point.Col < -1)
+            {
+                throw new ArgumentOutOfRangeException("Index is stuck outside of the array");
+            }
+
             if (point.Row >=  length || point.Row < 0 || point.Col < 0 || point.Col >= length)
             {
                 return true;

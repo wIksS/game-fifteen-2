@@ -28,7 +28,7 @@
             renderer = new ConsoleRenderer();
             inputReader = new ConsoleReader();
             scoreboard = Scoreboard.Instance;
-            numberGenerator = new NumberGenerator(16);
+            numberGenerator = new NumberGenerator(CommonConstants.GAME_BOARD_SIZE * CommonConstants.GAME_BOARD_SIZE);
         }
 
         public void Restart()
