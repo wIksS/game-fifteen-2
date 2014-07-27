@@ -4,7 +4,7 @@
     using GameFifteen.Contracts;
     using GameFifteen.Common;
 
-    class DefaultCommand : Command
+    internal class DefaultCommand : Command
     {
         private IRenderer renderer;
         private int[,] matrix;
