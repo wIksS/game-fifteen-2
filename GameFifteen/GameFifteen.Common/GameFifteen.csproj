@@ -76,6 +76,7 @@
     <Compile Include="Utils\RandomGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="GameFifteenClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

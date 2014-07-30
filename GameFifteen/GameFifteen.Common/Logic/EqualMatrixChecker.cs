@@ -9,7 +9,7 @@
     {
         /// <summary>Query if 'currentMatrix' is sorted.</summary>
         /// <exception cref="ArgumentNullException">Thrown when one or more required arguments are null.</exception>
-        /// <param name="currentMatrix" type="int[,]">The matrix.</param>
+        /// <param name="currentMatrix" type="int[,]">The game field.</param>
         /// <returns>true if sorted, false if not.</returns>
         public bool IsSorted(int[,] currentMatrix)
         {

@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameFifteen.Common.CommonConstants" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACBAEAAABIAgAAiQBAIAAAAAAAUQAAAAAQEIAAA=</HashCode>
+      <FileName>Common\CommonConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Common.NumberGenerator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAIAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\NumberGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameFifteen.Common.Player" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAEAAAABAAAA=</HashCode>
+      <FileName>Common\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Common.Point" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQACAAEAAgAAAAAAAAAAABA=</HashCode>
+      <FileName>Common\Point.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameFifteen.Common.Scoreboard" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAABiAAAAYAgAAAAAAAA=</HashCode>
+      <FileName>Common\Scoreboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Program" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>EntryPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Logic.Command" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logic\Command.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Logic.DefaultCommand" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAACAAAAIAABAAACAAAAA4gAA=</HashCode>
+      <FileName>Logic\DefaultCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Logic.EmptyCellMover" Collapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logic\EmptyCellMover.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Logic.EqualMatrixChecker" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Logic\EqualMatrixChecker.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameFifteen.Logic.ExitCommand" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQAgAA=</HashCode>
+      <FileName>Logic\ExitCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Logic.GameEngine">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAEAAAAgAAAAAAAAAYCIAAAAAAAAIAAAAACAgAA=</HashCode>
+      <FileName>Logic\GameEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Logic.MatrixEmptyCellRandomizator" Collapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Logic\MatrixEmptyCellRandomizator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Logic.MatrixGenerator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Logic\MatrixGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameFifteen.Logic.OutOfMatrixChecker" Collapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Logic\OutOfMatrixChecker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Logic.RestartCommand" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Logic\RestartCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Logic.ShowScoreboardCommand" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAIAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Logic\ShowScoreboardCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.UI.ConsoleReader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UI\ConsoleReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameFifteen.UI.ConsoleRenderer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAgAAAAAAAAAIAAEAAAACAAAAAgAAAAAAAAEAAA=</HashCode>
+      <FileName>UI\ConsoleRenderer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameFifteen.UI.UIConstants" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAEAAAAAAAAAEAAAgAAQAAAIAAAAABCCCAAAEAQAQAA=</HashCode>
+      <FileName>UI\UIConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Utils.Directions" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\Directions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameFifteen.Utils.RandomGenerator" Collapsed="true">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Utils\RandomGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="GameFifteen.Contracts.IEqualMatrixChecker" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Contracts\IEqualMatrixChecker.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameFifteen.Contracts.IMatrixGenerator" Collapsed="true">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IMatrixGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameFifteen.Contracts.INumberGenerator" Collapsed="true">
+    <Position X="13.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\INumberGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameFifteen.Contracts.IReader" Collapsed="true">
+    <Position X="15" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IReader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="GameFifteen.Contracts.IRenderer" Collapsed="true">
+    <Position X="16.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAIAAEAAAACAAAAAgAAAAAAAAEAAA=</HashCode>
+      <FileName>Contracts\IRenderer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

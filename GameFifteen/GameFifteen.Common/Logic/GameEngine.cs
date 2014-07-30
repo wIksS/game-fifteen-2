@@ -112,7 +112,7 @@
                 }
 
                 currentCommand.Execute();
-                // type checking is bad
+
                 if (currentCommand is DefaultCommand && (currentCommand as DefaultCommand).IsPlayerMoved)
                 {
                     playerMoves++;
