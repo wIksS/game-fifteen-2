@@ -1,12 +1,11 @@
 ﻿namespace GameFifteen.Common
 {
-    using GameFifteen.Utils;
     using System;
     using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>Represents a scoreboard.</summary>
-    public class Scoreboard
+    public sealed class Scoreboard
     {
         private static Scoreboard instance;
         private List<Player> players;
