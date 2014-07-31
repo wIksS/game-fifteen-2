@@ -3,7 +3,6 @@
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using GameFifteen.Common;
-    using GameFifteen.Contracts;
     using GameFifteen.Logic;
 
     [TestClass()]

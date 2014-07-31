@@ -1,7 +1,6 @@
 ﻿namespace GameFifteen.Logic
 {
     using GameFifteen.Contracts;
-    using GameFifteen.Utils;
     using GameFifteen.UI;
     using GameFifteen.Common;
 
@@ -11,10 +10,10 @@
         private bool isGameOver;
         private bool gameEnd;
 
-        private IRenderer renderer;
-        private IReader inputReader;
-        private Scoreboard scoreboard;
-        private INumberGenerator numberGenerator;
+        private readonly IRenderer renderer;
+        private readonly IReader inputReader;
+        private readonly Scoreboard scoreboard;
+        private readonly INumberGenerator numberGenerator;
 
         /// <summary>Gets or sets a value indicating whether this object is game over.</summary>
         /// <value>true if this object is game over, false if not.</value>

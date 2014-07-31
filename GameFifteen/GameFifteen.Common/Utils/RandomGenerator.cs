@@ -5,7 +5,7 @@
     /// <summary>Represents a random generator.</summary>
     public class RandomGenerator
     {
-        private static Random numberInMatrix = new Random();
+        private static readonly Random numberInMatrix = new Random();
 
         // unused
         /// <summary>Gets random number.</summary>

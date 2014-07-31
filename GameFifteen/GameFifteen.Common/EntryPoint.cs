@@ -1,7 +1,5 @@
 ﻿namespace GameFifteen
 {
-    using GameFifteen.Common;
-    using GameFifteen.Contracts;
     using GameFifteen.Logic;
 
     /// <summary>Represents the entry point.</summary>

@@ -3,7 +3,6 @@
     using System;
     using System.Linq;
     using System.Text;
-    using GameFifteen.Tests.UI;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using GameFifteen.Common;
     using GameFifteen.UI;
@@ -31,7 +30,7 @@
         [TestMethod()]
         public void PrintScoreboardTest()
         {
-            var currentConsoleOut = Console.Out;
+            //var currentConsoleOut = Console.Out;
             var playerName = "Aashko";
             Player player = new Player(playerName, 0);
 

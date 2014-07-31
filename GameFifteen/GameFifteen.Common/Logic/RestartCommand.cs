@@ -5,7 +5,7 @@
     /// <summary>Represents a restart command.</summary>
     class RestartCommand : Command
     {
-        private GameEngine engine;
+        private readonly GameEngine engine;
 
         /// <summary>Constructor.</summary>
         /// <param name="engine" type="GameEngine">The engine.</param>

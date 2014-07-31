@@ -1,15 +1,14 @@
 ﻿namespace GameFifteen.Logic
 {
     using GameFifteen.Contracts;
-    using GameFifteen.Utils;
     using GameFifteen.Common;
 
     /// <summary>Represents a matrix generator.</summary>
     public class MatrixGenerator : IMatrixGenerator
     {
-        private int[,] gameMatrix;
-        private int matrixLength;
-        private INumberGenerator numberGenerator;
+        private readonly int[,] gameMatrix;
+        private readonly int matrixLength;
+        private readonly INumberGenerator numberGenerator;
 
         /// <summary>Constructor.</summary>
         /// <param name="matrixLength" type="int">Length of the matrix.</param>

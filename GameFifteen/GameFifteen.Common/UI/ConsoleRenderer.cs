@@ -4,7 +4,6 @@
     using GameFifteen.Common;
     using GameFifteen.Contracts;
     using System.Text;
-    using GameFifteen.Utils;
 
     /// <summary>Represents a console renderer.</summary>
     public class ConsoleRenderer : IRenderer

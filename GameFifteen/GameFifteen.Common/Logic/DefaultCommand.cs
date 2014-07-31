@@ -7,10 +7,10 @@
     /// <summary>Represents a default command.</summary>
     internal class DefaultCommand : Command
     {
-        private IRenderer renderer;
-        private int[,] matrix;
-        private Point emptyPoint;
-        private string inputString;
+        private readonly IRenderer renderer;
+        private readonly int[,] matrix;
+        private readonly Point emptyPoint;
+        private readonly string inputString;
         private bool isPlayerMoved = false;
 
         //TODO: Separate this class in 2 more classes. MooveCommandExecutor and ValidMooveCommandChecker

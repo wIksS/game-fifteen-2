@@ -18,21 +18,21 @@ namespace GameFifteen.Common.Tests
         [ExpectedException(typeof(ArgumentNullException))]
         public void PlayerNullNameTest()
         {
-            Player player = new Player(null, 12);
+            new Player(null, 12);
         }
 
         [TestMethod()]
         [ExpectedException(typeof(ArgumentNullException))]
         public void PlayerEmptyNameTest()
         {
-            Player player = new Player("", 12);
+            new Player("", 12);
         }
 
         [TestMethod()]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void PlayerInvalidMoovesTest()
         {
-            Player player = new Player("Go6o", -1);
+            new Player("Go6o", -1);
         }
 
         [TestMethod()]

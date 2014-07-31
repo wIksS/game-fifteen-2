@@ -1,9 +1,7 @@
 ﻿namespace GameFifteen.UI
 {
     using System;
-    using GameFifteen.Common;
     using GameFifteen.Contracts;
-    using GameFifteen.Utils;
 
     /// <summary>Represents a console reader.</summary>
     class ConsoleReader : IReader
